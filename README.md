@@ -1,5 +1,5 @@
 # NASSCOM_VSD_Soc_design
-NASSCOM-PD 23Apr_6May_2025
+NASSCOM-PD 23Apr-6May_2025
 
 # Day 1
 <details>
