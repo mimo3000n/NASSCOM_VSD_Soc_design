@@ -19,6 +19,13 @@ This workshop focuses on Open-Source ASIC Physical Design Flow, using tools like
 - Design Preparation stage
 - Execution & analysis of Synthesis
 
+### What is OpenLANE
+
+[OpenLANE](https://github.com/efabless/openlane) is an automated RTL to GDSII flow which includes various open-source components such as OpenROAD, Yosys, Magic, Fault, Netgen, SPEF-Extractor. It also facilitates to add custom design exploration and optimization scripts. The detailed diagram of the OpenLANE architecture is shown below:
+
+![image](https://github.com/user-attachments/assets/77ec7746-86c1-4919-a37c-2d5d2bfe50e5)
+
+
 ## Lab - screenshot
 
 [start openlane]![image](https://github.com/user-attachments/assets/dee4eda9-da46-4da9-a694-f0e3668c8960)
