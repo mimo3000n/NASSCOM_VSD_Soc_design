@@ -63,27 +63,44 @@ check youtube for "fossi dial up"
 
 </details>
 
-# Day 2
+# Day 2 - Floorplanning & Placement
 <details>
-<summary> </summary>
+<summary> Floorplanning & Placement </summary>
+
+- Introduction to floorplan phase
+- LEF vs DEF
+- Special cells
+- Execution & analysis of Placement
 
 </details>
 
-# Day 3
+# Day 3 -Standard Cell Design & Characterization
 <details>
-<summary> </summary>
+<summary> Standard Cell Design & Characterization </summary>
+
+- Std. cell design using Sky130 PDK
+- SPICE simulation in Ngspice
+- Std. cell Characterization
+</details>
+
+# Day 4 - Timing Analysis & Clock Tree Synthesis (CTS)
+<details>
+<summary> Timing Analysis & Clock Tree Synthesis (CTS) </summary>
+
+- PnR with custom cell
+- Clock Tree Synthesis
+- Static Timing Analysis
+- Timing ECOs
 
 </details>
 
-# Day 4
+# Day 5 - RTL-to-GDS Flow Completion
 <details>
-<summary> </summary>
+<summary> RTL-to-GDS Flow Completion </summary>
 
-</details>
-
-# Day 5
-<details>
-<summary> </summary>
+- Routing
+- Algorithm behind TritonRoute
+- SPEF analysis and extraction
 
 </details>
 
