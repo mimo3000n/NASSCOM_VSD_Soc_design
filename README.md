@@ -1,4 +1,7 @@
 # NASSCOM_VSD_VLSI_Soc_design
+
+![image](https://github.com/user-attachments/assets/4344ac2a-3b55-45de-b0df-c692f1febeb0)
+
 NASSCOM-PD 23Apr-6May_2025
 
 Welcome to documentation for the VSD-IAT workshop on VLSI SoC design! This repository contains my daily learnings, notes, and hands-on work throughout the course.
