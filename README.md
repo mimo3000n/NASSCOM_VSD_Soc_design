@@ -7,9 +7,14 @@ This workshop focuses on Open-Source ASIC Physical Design Flow, using tools like
 
 ## it not finished and current work in progress!!!!
 
-# Day 1
+# Day 1 - Introduction & Synthesis
 <details>
-<summary> </summary>
+<summary> Introduction & Synthesis </summary>
+
+- Familiarization with OpenLane / Sky130
+- Physical Design (PnR) stages
+- Design Preparation stage
+- Execution & analysis of Synthesis
 
 ## Lab - screenshot
 
