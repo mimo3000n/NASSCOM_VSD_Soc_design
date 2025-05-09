@@ -72,7 +72,7 @@ check youtube for "fossi dial up"
 
 # Day 2 - Floorplanning & Placement
 <details>
-<summary> Floorplanning & Placement </summary>
+<summary> Interceptiopn of open-source EDA, OpenLANE, Sky130 PDK </summary>
 
 - Introduction to floorplan phase
 - LEF vs DEF
@@ -83,7 +83,7 @@ check youtube for "fossi dial up"
 
 # Day 3 -Standard Cell Design & Characterization
 <details>
-<summary> Standard Cell Design & Characterization </summary>
+<summary> Standard Cell Design & Characterization using Magic Layout and ngspice characterizsation</summary>
 
 - Std. cell design using Sky130 PDK
 - SPICE simulation in Ngspice
@@ -92,7 +92,7 @@ check youtube for "fossi dial up"
 
 # Day 4 - Timing Analysis & Clock Tree Synthesis (CTS)
 <details>
-<summary> Timing Analysis & Clock Tree Synthesis (CTS) </summary>
+<summary> Timing Analysis & Clock Tree Synthesis (CTS) and importance of good clock trees</summary>
 
 - PnR with custom cell
 - Clock Tree Synthesis
@@ -101,9 +101,9 @@ check youtube for "fossi dial up"
 
 </details>
 
-# Day 5 - RTL-to-GDS Flow Completion
+# Day 5 - RTL-to-GDS Flow Completion using tritonRoute and openSTA
 <details>
-<summary> RTL-to-GDS Flow Completion </summary>
+<summary> RTL-to-GDS Flow Completion using tritonRoute and openSTA</summary>
 
 - Routing
 - Algorithm behind TritonRoute
