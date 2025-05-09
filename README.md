@@ -14,10 +14,20 @@ This workshop focuses on Open-Source ASIC Physical Design Flow, using tools like
 <details>
 <summary> Introduction & Synthesis </summary>
 
-- Familiarization with OpenLane / Sky130
-- Physical Design (PnR) stages
-- Design Preparation stage
-- Execution & analysis of Synthesis
+- Introduction to QFN-48 Package, chip, pad,core, die and IP's
+- Introduction to RISC-V
+- From Spftware Application to Hardware
+
+- Introduction to all componenes of open-source digital asic design
+- Simplified RTL2GDS flow
+- Introduction to OpenLANE and Strive chipsets
+- Introduction to OpenLANE detailed ASIC design flow
+
+- OpenLANE Directory structure in detail
+- Design Preparation Steps
+- Review files after design prep and run synthesis
+- OpenLANE Project Git Link Description
+- Steps to characterize synthesis result
 
 ### What is OpenLANE
 
@@ -74,10 +84,32 @@ check youtube for "fossi dial up"
 <details>
 <summary> Interceptiopn of open-source EDA, OpenLANE, Sky130 PDK </summary>
 
-- Introduction to floorplan phase
-- LEF vs DEF
-- Special cells
-- Execution & analysis of Placement
+- Chip Floor planing conciderations
+  - Utilization factor and acpect ratio
+  - Concept of pre-placement
+  - De-coupling capacitors
+  - Pin placement and logical cell placement blockage
+  - Steps to run floor using OpenLANE
+  - Review floorplan files and steps to view floorplan
+  - Review floorplan layout in Magic
+  
+- Library Binding and Placement
+  - Netlist binding and initial place design
+  - Optimize placement using estimated wite-length and capacitance
+  - Final plancement optimization
+  - Need for libraries and characterizatiion
+  - Congestion aware placement using RePlace
+  
+- Cell design and characterization flows
+  - Inputs for cell design flow
+  - Circuit design steps
+  - Layout design steps
+  - Typical characterization flow
+  
+- General timing characterization parameter
+  - Timing threshold definition
+  - Propagation delay and transition time
+  
 
 </details>
 
@@ -85,9 +117,28 @@ check youtube for "fossi dial up"
 <details>
 <summary> Standard Cell Design & Characterization using Magic Layout and ngspice characterizsation</summary>
 
-- Std. cell design using Sky130 PDK
-- SPICE simulation in Ngspice
-- Std. cell Characterization
+- Labs for CMOS inverter ngspice simulation
+  - IO placer revision
+  - SPICE deck creation for CMOS inverter
+  - SPICE simulation lab for CMOS inverter
+  - Switching Threshold Vm
+  - Static and dynamic simulation of CMOS inverter
+  - Lab steps to git clone vsdstdcelldesign
+  
+- Inception of Layout CMOS fabrication process
+  - Create Active regions
+  - Formation of N-well and P-well
+  - Ligthly dopes drain (LDD) formation
+  - Source drain formation
+  - Local interconnection formatation
+  - Higher level formation
+  - Lab introduction to Sky130 basic layers layout and LEF using inverter
+  - Lab steps to create std cell layout and extraction spice netlist
+ 
+- Sky130 Tech File Labs
+  - Lab steps to create final SPICE deck using Sky130 tech
+  - 
+- 
 </details>
 
 # Day 4 - Timing Analysis & Clock Tree Synthesis (CTS)
