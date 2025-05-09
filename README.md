@@ -137,7 +137,9 @@ check youtube for "fossi dial up"
  
 - Sky130 Tech File Labs
   - Lab steps to create final SPICE deck using Sky130 tech
-  - 
+  - Lab steps to characterize inverter using sky130 model files
+  - Lab introduction to Magic tool option and DRC rules
+  - Lab introduction to ky130 pks's and steps to download labs
 - 
 </details>
 
