@@ -84,33 +84,33 @@ check youtube for "fossi dial up"
 <details>
 <summary> Interceptiopn of open-source EDA, OpenLANE, Sky130 PDK </summary>
 
-- Chip Floor planing conciderations
-  - Utilization factor and acpect ratio
+- ### Chip Floor planing conciderations
+  - #### Utilization factor and acpect ratio
  
-Definition and calculation of width and Hight of Core and Dia of a Chip
+    Definition and calculation of width and Hight of Core and Dia of a Chip
 
 ![11-05-2025_12-47-40](https://github.com/user-attachments/assets/6477c788-2c32-4a4b-abc4-817d038e703a)
 
-We use a simple netlist of 2 flip-flops and an AND and anOR gate to calulate Utilization factor and aspect Ration.
-Netlist 
+    We use a simple netlist of 2 flip-flops and an AND and anOR gate to calulate Utilization factor and aspect Ration.
+    Netlist 
 
 ![11-05-2025_12-49-10](https://github.com/user-attachments/assets/b458de7f-37e1-4ea2-a4e6-319e983c9af2)
 
-We replace logicgates by physical logic cells with proper dimension to calculate size of the core
+    We replace logicgates by physical logic cells with proper dimension to calculate size of the core
 
 ![11-05-2025_12-50-37](https://github.com/user-attachments/assets/51e3391d-0143-470c-bff5-aa69dacb246c)
 
-assume that a standard cell have size of 1 x 1 until = 1 sq unit in size, same is valid for a flip-flop
+    assume that a standard cell have size of 1 x 1 until = 1 sq unit in size, same is valid for a flip-flop
 
 ![11-05-2025_17-12-45](https://github.com/user-attachments/assets/90dd276b-22bb-4208-842d-651b205b300e)
 
-remove the wires and place all cells together which rusults in 2 x 2 units = 4 sq. untis
+    remove the wires and place all cells together which rusults in 2 x 2 units = 4 sq. untis
 
-during production process the core and dia will be replicated multiple time on wafer to increase throuput
+    during production process the core and dia will be replicated multiple time on wafer to increase throuput
 
 ![11-05-2025_12-52-09](https://github.com/user-attachments/assets/e39fe0fb-134f-49d0-a984-77a0da0518f1)
 
-if netlist occupies the complete core we talk about a utilization of 100% or of a utilization factor of 1, which is shown on next 3 slides
+    if netlist occupies the complete core we talk about a utilization of 100% or of a utilization factor of 1, which is shown on next 3 slides
 
 ![11-05-2025_12-53-02](https://github.com/user-attachments/assets/654ab2a5-7d03-4ff6-be72-5a837d603e1c)
 
@@ -118,19 +118,19 @@ if netlist occupies the complete core we talk about a utilization of 100% or of 
 
 ![11-05-2025_12-55-53](https://github.com/user-attachments/assets/72bcc09e-7f7e-49b4-b5c9-6186b487d9e0)
 
-The concept of aspect ratio is hight / width. In our example 2 untis / 2 units = 1
+    The concept of aspect ratio is hight / width. In our example 2 untis / 2 units = 1
 
 ![11-05-2025_16-54-56](https://github.com/user-attachments/assets/20e89710-0c8c-4f02-9fff-06763f404311)
 
 ![11-05-2025_16-56-06](https://github.com/user-attachments/assets/9b3083ff-44db-4567-bde8-ed547b94e3cd)
 
-another example with a rectange core of 4 units / 2 units result in a differen Utilisation factor and a different acpcet ration compared to above szenario
+    another example with a rectange core of 4 units / 2 units result in a differen Utilisation factor and a different acpcet ration compared to above szenario
 
 ![11-05-2025_16-56-44](https://github.com/user-attachments/assets/5b0dd895-bfab-47de-ae08-1ff4221de647)
 
-  - Concept of pre-placement
+  - #### Concept of pre-placement
 
-the idea is to create reusable moduls called IP's. If you have a complex logic you beak it down into reusable parts called module what are seene as black boxes this input an out lines an specific functions.
+    the idea is to create reusable moduls called IP's. If you have a complex logic you beak it down into reusable parts called module what are seene as black boxes this input an out lines an specific functions.
 
 ![11-05-2025_17-36-43](https://github.com/user-attachments/assets/8ba71c2a-fb8f-4edb-b801-06eadb274718)
 
@@ -143,7 +143,7 @@ For functions like Mux, Comparator, ALU's, Adder,.... IP's are available and can
 ![11-05-2025_17-39-44](https://github.com/user-attachments/assets/08823182-8e2d-46c7-b3b6-bb3467024903)
 
 
-  - De-coupling capacitors
+  - #### De-coupling capacitors
 
 ![11-05-2025_17-48-47](https://github.com/user-attachments/assets/897d3d6d-b3c7-4c36-ade2-7c9d21a314d4)
 
@@ -166,27 +166,27 @@ For functions like Mux, Comparator, ALU's, Adder,.... IP's are available and can
 
 
 
-  - Pin placement and logical cell placement blockage
-  - Steps to run floor using OpenLANE
-  - Review floorplan files and steps to view floorplan
-  - Review floorplan layout in Magic
+  - #### Pin placement and logical cell placement blockage
+  - ##### Steps to run floor using OpenLANE
+  - ##### Review floorplan files and steps to view floorplan
+  - ##### Review floorplan layout in Magic
   
-- Library Binding and Placement
-  - Netlist binding and initial place design
-  - Optimize placement using estimated wite-length and capacitance
-  - Final plancement optimization
-  - Need for libraries and characterizatiion
-  - Congestion aware placement using RePlace
+- ### Library Binding and Placement
+  - #### Netlist binding and initial place design
+  - #### Optimize placement using estimated wite-length and capacitance
+  - #### Final plancement optimization
+  - #### Need for libraries and characterizatiion
+  - #### Congestion aware placement using RePlace
   
-- Cell design and characterization flows
-  - Inputs for cell design flow
-  - Circuit design steps
-  - Layout design steps
-  - Typical characterization flow
+- ### Cell design and characterization flows
+  - #### Inputs for cell design flow
+  - #### Circuit design steps
+  - #### Layout design steps
+  - #### Typical characterization flow
   
-- General timing characterization parameter
-  - Timing threshold definition
-  - Propagation delay and transition time
+- ### General timing characterization parameter
+  - #### Timing threshold definition
+  - #### Propagation delay and transition time
   
 
 </details>
