@@ -140,27 +140,71 @@ check youtube for "fossi dial up"
   - Lab steps to characterize inverter using sky130 model files
   - Lab introduction to Magic tool option and DRC rules
   - Lab introduction to ky130 pks's and steps to download labs
-- 
+  - Lab introduction to Magic and steps to load Sky130 tech-rules
+  - Lab exercise to fix poly.9error in Sky130 tech-file
+  - Lab exercice to implöement poly resistors spacing to diff and tap
+  - Lab challenge excercise to describe DRC error as geometrical construc
+  - Lab exercise to find missing or incorrect rules and fix them
+ 
 </details>
 
 # Day 4 - Timing Analysis & Clock Tree Synthesis (CTS)
 <details>
 <summary> Timing Analysis & Clock Tree Synthesis (CTS) and importance of good clock trees</summary>
 
-- PnR with custom cell
-- Clock Tree Synthesis
-- Static Timing Analysis
-- Timing ECOs
+- Timing modelling using delay tables
+  - Lab steps to convert grid info to track info
+  - Lab step to convert magiv layout to std cell LEF
+  - Introduction to timing libs and steps to inculde new cell in synthesis
+  - Introduction to delay tables
+  - Delay table usage Part 1
+  - Delay table using Part 2
+  - Lab steps to configure systhesis stetting to fix slack and inculde vsdinv
+ 
+   
+- Timing analysis with idesl clocks using openSTA
+  - Setup timing analysis and introduction to flip-flop setup time
+  - Introduction to clock jitter and uncertainty
+  - Lab steps to configure OpenmSTA for post-synth timing analysis
+  - Lab steps to optimize synthesis to reduce setup violations
+  - Lab steps to do basic timing ECO
+ 
+  
+- Clock tree synthesis TritonCTS and signal intrgitry
+  - Clock tree routing and buffering using H-Tree alogorithm
+  - Crosstalk and clock net shielding
+  - Lap steps to run CTS using Triton CTS
+  - Lab steps to verify CTS runs
+ 
 
+- Timing analysis with real clocks using open STA
+  - Setup timing analysis using real clocks
+  - Hold timinng analysis using real clocks
+  - Lab steps to analyze timing with real clocks using OpenSTA
+  - Lab steps to execute OpenSTA with rigth timing libraries and CTS assignment
+  - Lab steps to observe impact of bigger CTS buffers on setup and hold timing
+  
 </details>
 
 # Day 5 - RTL-to-GDS Flow Completion using tritonRoute and openSTA
 <details>
 <summary> RTL-to-GDS Flow Completion using tritonRoute and openSTA</summary>
 
-- Routing
-- Algorithm behind TritonRoute
-- SPEF analysis and extraction
-
+- Routing and design rule checks (DRC)
+  - Introduction to Maze Routing and Lee algorithm
+  - Lee's Algorithm conclusion
+  - Design Rule Check
+    
+- Power Distribution Network and routing
+  - Lab steps to build power distribution network
+  - Lab steps from power straps to std cell power
+  - Basic of global and drtail routing and configure TritonRoute
+    
+- TritonRoute Features
+  - TritonRoute feature 1 - Honors pre-processing route guide
+  - TritonRoute Feature 2 & 3 - Inter-guide connectivity and intra- & inter-layer routing
+  - TritoRoute methode to handle connectivity
+  - Routing topology algorithm and final files list post-route
+  
 </details>
 
