@@ -8,7 +8,7 @@ Welcome to documentation for the VSD-IAT workshop on VLSI SoC design! This repos
 
 This workshop focuses on Open-Source ASIC Physical Design Flow, using tools like OpenLane, Magic VLSI, and the Sky130 PDK. Goal is to get skills in chip design using free and open-source tools. My personal goal is NOT to become a chip-designer, i want have a good understanding how process is working, litte bit of physics and good understanding of the tools which are involved in the process.
 
-## it not finished and current work in progress!!!! - i need more time to finish classand document all lab's!!!!!!
+## it not finished and current work in progress!!!! - i need more time to finish class and document all lab's!!!!!!
 
 # Day 1 - Introduction & Synthesis
 <details>
