@@ -625,6 +625,26 @@ now start magic from **/home/vsduser/Desktop/work/tools/openlane_working_dir/ope
 ![12-05-2025_21-41-07](https://github.com/user-attachments/assets/9228cdc6-9775-4575-bff1-8345b525d74d)
 
   - ##### Review floorplan layout in Magic
+
+in magic you have following commands:
+
+	s - select layout
+ 	v - center layout on screen
+
+to select a oprtion of the screen you do first a **left mouse click** and then a **rigth mouse click** and
+
+	z - zoom in
+
+ to get info about a object select opject with crosshair and press "s" on keyboard
+
+ 	s - object info
+
+to get the opject info switch to Main window and enter "what" at promt-line %
+
+![12-05-2025_21-57-55](https://github.com/user-attachments/assets/b7a00156-fa93-40ca-b9fd-dc0cda90e80e)
+
+
+  
   
 - ### Library Binding and Placement
   - #### Netlist binding and initial place design
