@@ -611,11 +611,18 @@ then in flooplan folder:
 
 ![12-05-2025_16-54-28](https://github.com/user-attachments/assets/a7ab678d-2164-4a2a-9ac2-3c9cfb08ad58)
 
-we have a look in **ioPlacer.log** ea the end
+check **picorv32a.floorplan.def** in **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-05_13-55/results/floorplan** folder.
+At begin you can see the coplete dia area of the chip.
 
+**DIEAREA ( 0 0 ) ( 660685 671405 ) ;**
 
+![12-05-2025_21-21-08](https://github.com/user-attachments/assets/e4a667c9-0488-4354-9be0-cee021429347)
 
+now start magic from **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-05_13-55/results/floorplan** with following cmd-line:
 
+**magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &**
+
+![12-05-2025_21-41-07](https://github.com/user-attachments/assets/9228cdc6-9775-4575-bff1-8345b525d74d)
 
   - ##### Review floorplan layout in Magic
   
