@@ -176,32 +176,66 @@ If we look to the physical chip we place in our example de de-coupling capacitor
 
   - #### Power planing
 
+    See circuit in prev exercise as an black box, a macro.
+
 ![12-05-2025_12-52-09](https://github.com/user-attachments/assets/abe1cc85-aeec-4f3f-8d51-46ea4d5fe941)
+
+    repeat it multible time on a chip.
+    Now the goal is if one circut output drives other cicuirs's input in below slide, the shape of the signal sould be the same, that we have to make sure.
 
 ![12-05-2025_12-52-50](https://github.com/user-attachments/assets/ced557c9-d11b-42b0-a2a3-6afc2374a9bb)
 
+Where is the problem?
+The assumtion is that the orange line is a 16bit bus goning from 0 to 1. we dont have a de-coupling capacitor, so the power supple have to supply power for this complete line.
+Its also not possible to place each and everyware a de-coupling capacitor. So the power supply have to supply needed power that there is no voltage drop.
+
 ![12-05-2025_12-53-33](https://github.com/user-attachments/assets/69efb053-48a8-4b9b-91fb-dd67cd81483e)
+
+If we visualize the 16bit bus all 1's charge capacitor and all 0's dis-charge capacitor.
+If we connect to an inverter all 1's will be dischared and oll 0's will be chard to 1.
 
 ![12-05-2025_12-54-11](https://github.com/user-attachments/assets/c054159d-5aab-4bdc-8f4f-9e36b03fa232)
 
+There is only a singe gound line an if all 1's are descarged to 0 there will be a bump in the ground line, call "Ground Bounce". If the size of the grond bounce exit the noise margin level we we enter into undifined state which mean we can have a logic 1 or logic 0.
+
 ![12-05-2025_12-55-46](https://github.com/user-attachments/assets/1a141daf-06a0-4fe8-9219-ddf3bd84bfe8)
+
+Same happen if 0's are going to 1's. Due that we have a single power line we will have a voltage droop until capacitor's are charged, if this exit noise margin level we have a risk for an undifined state of the cell.
 
 ![12-05-2025_12-56-17](https://github.com/user-attachments/assets/10337385-0929-47b0-aed1-3d4c3877e7ba)
 
+To solve this porblem we use instead of only one power supply multiple power supply's. If a sircut need's power it will get the power from the neares power supply. That's the reason that you multiple Vss & Vdd on chip, this is call a mesh.
+
 ![12-05-2025_12-57-13](https://github.com/user-attachments/assets/124a5e9d-fb72-4b13-920f-44c4af73ab41)
 
+If we look to a physical chip we see a power mesh to eliminate the problem with voltatge droop and groud bounce.
 
 ![12-05-2025_12-57-48](https://github.com/user-attachments/assets/58900ee4-e4a9-4569-96b5-bf5e762dcda1)
 
-
-
-
-
-
-
-
-
   - #### Pin placement and logical cell placement blockage
+
+    In example implementation the have section 1 & 2, which constists og flip-flops, logic gates and 2 pre-places cells block a and block b.
+
+![12-05-2025_14-37-58](https://github.com/user-attachments/assets/a31fe3b0-ff64-4d0b-8b36-fdc5e098e0c5)
+
+    addition we have section 3 & 4 an pre-placed cell, block c in our design.
+
+![12-05-2025_14-39-35](https://github.com/user-attachments/assets/11ff052f-ba2a-49da-ad05-1f5985d7160c)
+
+    now we have the complete disign with section 1, 2, 3, 4, and pre-placed cell's block a,b,c.
+    The connectivity of the gates is described in a "netnist",the coding is done in Verilog or VHDL.
+
+![12-05-2025_14-46-00](https://github.com/user-attachments/assets/434747d0-04ca-43de-b858-a2061bec8cb9)
+
+next is we place input and out port on the chip. The area between core and dia will be filled with pins for input and output. In our example we place input ports in left-hand side and input-port on rigth-hand side, but this depends on design. The ordering of the ports are random it depend's where we place the cell on chip. In our example Clk1 & Clk2 are very important chause they drive the complete chip. We need therefor a least resistance we mean we have to increase the size of the pin.
+The area between core and dia are reserved for pin placement and are not used by the routing-tool
+
+![12-05-2025_14-43-13](https://github.com/user-attachments/assets/bfb94b4b-10ce-49ec-a8ad-4ea01176d923)
+
+Now we are ready for placement & routing!!
+
+
+
   - ##### Steps to run floor using OpenLANE
   - ##### Review floorplan files and steps to view floorplan
   - ##### Review floorplan layout in Magic
