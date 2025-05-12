@@ -164,17 +164,34 @@ If the voltage drop is still in noise margin range weare save, otherwise voltage
 
 ![11-05-2025_17-51-47](https://github.com/user-attachments/assets/2a71f711-0865-4954-9144-279852610aaa)
 
-![11-05-2025_17-52-39](https://github.com/user-attachments/assets/406e86f0-20b6-4adb-bf94-3a89fee342d4)
-
 To solve this problem we use de-coupling capacitors.
 The circuit get its power from de-coupling capacitor in case of switching from 0 to 1, and is so de-coupled from power supply. De-Coupled capacitors are pled very clos to the ciurcit to minimze voltage drops due to wire resistance.
 
-
-![11-05-2025_17-53-10](https://github.com/user-attachments/assets/4267535f-3f55-4b05-ab1e-8e5d18d9e3f7)
+![11-05-2025_17-52-39](https://github.com/user-attachments/assets/406e86f0-20b6-4adb-bf94-3a89fee342d4)
 
 If we look to the physical chip we place in our example de de-coupling capacitors betwee the pre.defined cells.
 
 ![11-05-2025_17-53-10](https://github.com/user-attachments/assets/cdc9c09f-1b2f-4775-b1c2-924627d1b629)
+
+
+  - #### Power planing
+
+![12-05-2025_12-52-09](https://github.com/user-attachments/assets/abe1cc85-aeec-4f3f-8d51-46ea4d5fe941)
+
+![12-05-2025_12-52-50](https://github.com/user-attachments/assets/ced557c9-d11b-42b0-a2a3-6afc2374a9bb)
+
+![12-05-2025_12-53-33](https://github.com/user-attachments/assets/69efb053-48a8-4b9b-91fb-dd67cd81483e)
+
+![12-05-2025_12-54-11](https://github.com/user-attachments/assets/c054159d-5aab-4bdc-8f4f-9e36b03fa232)
+
+![12-05-2025_12-55-46](https://github.com/user-attachments/assets/1a141daf-06a0-4fe8-9219-ddf3bd84bfe8)
+
+![12-05-2025_12-56-17](https://github.com/user-attachments/assets/10337385-0929-47b0-aed1-3d4c3877e7ba)
+
+![12-05-2025_12-57-13](https://github.com/user-attachments/assets/124a5e9d-fb72-4b13-920f-44c4af73ab41)
+
+
+![12-05-2025_12-57-48](https://github.com/user-attachments/assets/58900ee4-e4a9-4569-96b5-bf5e762dcda1)
 
 
 
