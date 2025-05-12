@@ -146,11 +146,17 @@ For functions like Mux, Comparator, ALU's, Adder,.... IP's are available and can
   - #### De-coupling capacitors
 
     concept of macros which contain reusable cells (IP's) which can be used multiple times and on different hardware.
-    Location where cells (A, B, C) in our example depend on desig szenario. Idea of pre-placed cells are that they are fixed and can't be moved.
+    Location where cells (A, B, C) in our example depend on desig szenario.
 
 ![11-05-2025_17-48-47](https://github.com/user-attachments/assets/897d3d6d-b3c7-4c36-ade2-7c9d21a314d4)
 
+Idea of pre-placed cells are that they are fixed and can't be moved.
+
 ![11-05-2025_17-49-27](https://github.com/user-attachments/assets/8767ab10-435c-43cb-b51f-fdcf8cf8c98a)
+
+Concept of de-copupling capacitors: 
+Due to phisical resistance of wires on a chip the is a voltage drop, when switching a circuit from 0 to 1, a current flow from power supply to cell.
+If the voltage drop is still in noise margin range weare save, otherwise voltage falls into "undifened area" which produce unpredictable result.
 
 ![11-05-2025_17-50-40](https://github.com/user-attachments/assets/eb1ac662-24e4-4881-b3ea-dd04a536ff21)
 
@@ -160,7 +166,16 @@ For functions like Mux, Comparator, ALU's, Adder,.... IP's are available and can
 
 ![11-05-2025_17-52-39](https://github.com/user-attachments/assets/406e86f0-20b6-4adb-bf94-3a89fee342d4)
 
+To solve this problem we use de-coupling capacitors.
+The circuit get its power from de-coupling capacitor in case of switching from 0 to 1, and is so de-coupled from power supply. De-Coupled capacitors are pled very clos to the ciurcit to minimze voltage drops due to wire resistance.
+
+
 ![11-05-2025_17-53-10](https://github.com/user-attachments/assets/4267535f-3f55-4b05-ab1e-8e5d18d9e3f7)
+
+If we look to the physical chip we place in our example de de-coupling capacitors betwee the pre.defined cells.
+
+![11-05-2025_17-53-10](https://github.com/user-attachments/assets/cdc9c09f-1b2f-4775-b1c2-924627d1b629)
+
 
 
 
