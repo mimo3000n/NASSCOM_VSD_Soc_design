@@ -145,6 +145,9 @@ For functions like Mux, Comparator, ALU's, Adder,.... IP's are available and can
 
   - #### De-coupling capacitors
 
+    concept of macros which contain reusable cells (IP's) which can be used multiple times and on different hardware.
+    Location where cells (A, B, C) in our example depend on desig szenario. Idea of pre-placed cells are that they are fixed and can't be moved.
+
 ![11-05-2025_17-48-47](https://github.com/user-attachments/assets/897d3d6d-b3c7-4c36-ade2-7c9d21a314d4)
 
 ![11-05-2025_17-49-27](https://github.com/user-attachments/assets/8767ab10-435c-43cb-b51f-fdcf8cf8c98a)
