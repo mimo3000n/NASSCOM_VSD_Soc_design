@@ -643,6 +643,9 @@ to get the opject info switch to Main window and enter "what" at promt-line %
 
 ![12-05-2025_21-57-55](https://github.com/user-attachments/assets/b7a00156-fa93-40ca-b9fd-dc0cda90e80e)
 
+standard cell's are placed in lower left corner in floorplan.
+
+![12-05-2025_22-14-46](https://github.com/user-attachments/assets/c3ddad2d-23d9-4543-935e-9628e317f6f0)
 
   
   
