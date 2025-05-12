@@ -585,18 +585,38 @@ set ::env(PL_TARGET_DENSITY) [ expr ($::env(FP_CORE_UTIL)+5) / 100.0 ]
 
 ```
 
+the lowest priority is system default file(**floorplan.tcl**), next is **config.tcl** in design folder and next is **sky130A_sky130_fd_sc_hd_config.tcl** in design folder too.
+
 next is to run flooplaning in OpenLANE:
 
 run_floorplan
 
 ![12-05-2025_16-40-58](https://github.com/user-attachments/assets/e4df482a-d034-4098-8039-6c6c08e7c28f)
 
+last page of floorplan generation:
 
+![12-05-2025_16-45-55](https://github.com/user-attachments/assets/7eeec25f-301c-421b-81ba-e43dd6f96da5)
 
-
-the lowest priority is system default file(**floorplan.tcl**), next is **config.tcl** in design folder and next is **sky130A_sky130_fd_sc_hd_config.tcl** in design folder too.
-    
   - ##### Review floorplan files and steps to view floorplan
+
+now we go to run's folder: **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-05_13-55**
+
+![12-05-2025_16-49-38](https://github.com/user-attachments/assets/005ef980-d8db-4e28-b0db-85ad867f8f9e)
+
+we check now that the right switches were used - for that we go in the log folder **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/12-05_13-55/logs**
+
+![12-05-2025_16-53-02](https://github.com/user-attachments/assets/2d40d8b0-32ab-4e2a-84ad-034fc893355b)
+
+then in flooplan folder:
+
+![12-05-2025_16-54-28](https://github.com/user-attachments/assets/a7ab678d-2164-4a2a-9ac2-3c9cfb08ad58)
+
+we have a look in **ioPlacer.log** ea the end
+
+
+
+
+
   - ##### Review floorplan layout in Magic
   
 - ### Library Binding and Placement
