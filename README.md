@@ -782,7 +782,10 @@ if you zoom in you can see placement of standard cell's
 
 ![13-05-2025_18-09-00](https://github.com/user-attachments/assets/eff68a61-0f7c-48a3-ac3e-15c30b608adc)
 
-validate pin layout with magic
+validate new pin layout with magic
+
+![2025-05-13_22-02-30](https://github.com/user-attachments/assets/ea9b1479-9182-4f14-87e3-04c8648a8d7a)
+
 
 
 
@@ -791,6 +794,34 @@ validate pin layout with magic
   - Switching Threshold Vm
   - Static and dynamic simulation of CMOS inverter
   - Lab steps to git clone vsdstdcelldesign
+
+	clone vsdstdcelldesign repositiry
+
+``` sh
+git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+```
+![2025-05-13_22-15-14](https://github.com/user-attachments/assets/b5149f91-dd00-4437-8b86-07d0d807e91e)
+
+copy tech file to vsdstdcelldesign folder
+
+cd /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic 
+cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/
+
+verify that tech file is in folder
+
+![2025-05-13_22-24-45](https://github.com/user-attachments/assets/f4ab3982-178f-4270-b699-dce93ab206ac)
+
+check inverter with magic tool wit following command: **magic -T sky130A.tech sky130_inv.mag &**, exec this in folder **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign**
+
+![2025-05-13_22-31-00](https://github.com/user-attachments/assets/1287af26-d226-4c7f-90ca-387e944f1fac)
+
+
+
+
+
+
+
+
   
 - Inception of Layout CMOS fabrication process
   - Create Active regions
