@@ -741,12 +741,15 @@ validate now with magic: **magic -T /home/vsduser/Desktop/work/tools/openlane_wo
 
 ![13-05-2025_11-27-02](https://github.com/user-attachments/assets/099d03fe-3c6b-4c59-a73d-859a04c4ab2d)
 
+if you zoom in you can see placement of standard cell's 
 
-
+![13-05-2025_11-38-25](https://github.com/user-attachments/assets/9974543d-e1e1-45c1-b447-0743bfc098ab)
 
   
 - ### Cell design and characterization flows
   - #### Inputs for cell design flow
+ 
+
   - #### Circuit design steps
   - #### Layout design steps
   - #### Typical characterization flow
