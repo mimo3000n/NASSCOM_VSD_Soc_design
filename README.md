@@ -726,8 +726,23 @@ to select a oprtion of the screen you do first a **left mouse click** and then a
 
   - #### Congestion aware placement using RePlace
 
-	wedoa global placement and a detailed placement as next step in openLANE tool.
+	we do a global placement and a detailed placement as next step in openLANE tool.
 	objective is to reducing wire length.
+
+	run_placement in openLANE
+
+![13-05-2025_11-17-48](https://github.com/user-attachments/assets/ee318dd3-73ce-4b82-9ec0-6b052056ec94)
+
+checking placement after run
+
+![13-05-2025_11-24-18](https://github.com/user-attachments/assets/346e17ed-1646-4ecb-9e38-cb3ba16bb855)
+
+validate now with magic: **magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**
+
+![13-05-2025_11-27-02](https://github.com/user-attachments/assets/099d03fe-3c6b-4c59-a73d-859a04c4ab2d)
+
+
+
 
   
 - ### Cell design and characterization flows
