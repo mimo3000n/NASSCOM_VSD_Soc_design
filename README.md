@@ -651,8 +651,61 @@ standard cell's are placed in lower left corner in floorplan.
   
 - ### Library Binding and Placement
   - #### Netlist binding and initial place design
-  - #### Optimize placement using estimated wite-length and capacitance
+
+	let now transform out netlist to physical cell's. Eack logical component like a flip-flop, inverter, NAND-gate have physical dimension, like a width & higth.
+	that's our ecample netlist wich wi translate to phyical cells
+
+![13-05-2025_09-29-03](https://github.com/user-attachments/assets/48c64f56-c385-4c53-a8b1-cb1f91392b8b)
+
+	now we give alle logical gate a phisical property.
+
+ ![13-05-2025_09-30-00](https://github.com/user-attachments/assets/60a98434-c63f-434a-b067-7547069d4017)
+
+	if we remove all wires and focus on phsical components it lokk like below slide and this is called a "Library".
+ 	A library have not only physical attributs it store also info about delay, timing relevan information and so callen "when" condition. 
+
+ ![13-05-2025_09-33-56](https://github.com/user-attachments/assets/48a2fe45-10cd-4469-a6d5-66846e3eeabc)
+
+	a library storts also differen flavour's of a cell, in our examplel we have cells of bigger size which have a lower delay.
+
+ ![13-05-2025_09-39-52](https://github.com/user-attachments/assets/7862bdf9-af42-4530-b528-ac0bfb079601)
+
+ 	next step is placement of the cell on the floorplan.
+  	we have a well defines floorplan with input & output pis, we have the netlist and we have a shap of out design of each and evry component.
+   
+![13-05-2025_09-43-34](https://github.com/user-attachments/assets/07833aaf-62a2-41fe-a9cf-e2d8a598239b)
+
+   	now we place the components of the netlist on the floorplan in a proper way. 
+    	The FF1 is connected to Din1, so we place cell close to pin Din1, same for FF2 which is close to Dout1 and so on.
+    	
+![13-05-2025_09-49-05](https://github.com/user-attachments/assets/9590adb8-45d5-4fb7-8c74-429fa2b4df44)
+
+     	now we placed the complet netlist to out foolplan
+
+  - #### Optimize placement using estimated wite-length and capacitance    
+      
+![13-05-2025_09-55-20](https://github.com/user-attachments/assets/dc57bc1a-c34b-491a-b644-51598ca60608)
+
+	now we solve the problem of distance between cell's , this is called "optimized placement"
+	we have now to solve the problem regarding distance and capacitance shown in example below.
+ 
+![13-05-2025_09-59-37](https://github.com/user-attachments/assets/753fb9d6-857e-46ff-8c22-3385f3ad8b24)
+
+	to maintain signal integrity we insert buffers in our design
+
+ ![13-05-2025_10-03-13](https://github.com/user-attachments/assets/89aaa9c1-c838-49a8-bff7-b4a71f56c03d)
+
+ 	the final floorplan look like this taken distance into consideration
+
+  ![13-05-2025_10-06-27](https://github.com/user-attachments/assets/e328e68d-855c-47ca-9e31-dc4616cb411f)
+
   - #### Final plancement optimization
+
+	setup timing analysis
+
+
+
+
   - #### Need for libraries and characterizatiion
   - #### Congestion aware placement using RePlace
   
