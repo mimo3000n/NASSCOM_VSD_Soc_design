@@ -639,15 +639,13 @@ to select a oprtion of the screen you do first a **left mouse click** and then a
 
  	s - object info
 
-to get the opject info switch to Main window and enter "what" at promt-line %
+	to get the opject info switch to Main window and enter "what" at promt-line %
 
 ![12-05-2025_21-57-55](https://github.com/user-attachments/assets/b7a00156-fa93-40ca-b9fd-dc0cda90e80e)
 
-standard cell's are placed in lower left corner in floorplan.
+	standard cell's are placed in lower left corner in floorplan.
 
 ![12-05-2025_22-14-46](https://github.com/user-attachments/assets/c3ddad2d-23d9-4543-935e-9628e317f6f0)
-
-  
   
 - ### Library Binding and Placement
   - #### Netlist binding and initial place design
@@ -702,12 +700,35 @@ standard cell's are placed in lower left corner in floorplan.
   - #### Final plancement optimization
 
 	setup timing analysis
+	library characterisation and modeling.
+ 	1. part is synthesis of the netlist
 
+![13-05-2025_10-31-10](https://github.com/user-attachments/assets/a7d0de0e-e184-417c-a656-1cfe17430f52)
 
+  	2. part floorplaning & 3. part is placement
 
+![13-05-2025_10-46-45](https://github.com/user-attachments/assets/046f52ca-b9f7-407f-96e2-a8883522b062)
+
+	next is CTS (clock tree synthesis) - goal is that each FF get rising edge of CLK at the same time
+
+ ![13-05-2025_10-51-14](https://github.com/user-attachments/assets/5c1612f6-2901-4903-9304-6c131f3b6862)
+
+ 	next stepis routing, i.e. make routing shown in slide below
+
+  ![13-05-2025_10-55-20](https://github.com/user-attachments/assets/991f6ae5-935f-4e19-a2c1-3e7c486e3507)
+
+  	final we come to STA (Static Timing Analysis), here you see the setup time, the hold time, max. frequence of a circuit.
+   	Its the last sage of design flow, called often a sign off.
+
+   ![13-05-2025_10-59-52](https://github.com/user-attachments/assets/7c64e981-a593-4f22-9612-ffbaba8e1611)
 
   - #### Need for libraries and characterizatiion
+
   - #### Congestion aware placement using RePlace
+
+	wedoa global placement and a detailed placement as next step in openLANE tool.
+	objective is to reducing wire length.
+
   
 - ### Cell design and characterization flows
   - #### Inputs for cell design flow
