@@ -774,6 +774,16 @@ if you zoom in you can see placement of standard cell's
 	check pin config in magic
 
 	set ::env(FP_IO_MODE) 2
+	run_floorplan
+
+![13-05-2025_18-05-36](https://github.com/user-attachments/assets/50b2c984-4424-4078-97a0-29bc918ea82f)
+
+	check def file in result/floorplan folder
+
+![13-05-2025_18-09-00](https://github.com/user-attachments/assets/eff68a61-0f7c-48a3-ac3e-15c30b608adc)
+
+validate pin layout with magic
+
 
 
   - SPICE deck creation for CMOS inverter
