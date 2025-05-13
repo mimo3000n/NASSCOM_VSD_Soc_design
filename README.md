@@ -767,6 +767,15 @@ if you zoom in you can see placement of standard cell's
 
 - Labs for CMOS inverter ngspice simulation
   - IO placer revision
+ 
+  Lab:
+
+	Option to do changes on the fly
+	check pin config in magic
+
+	set ::env(FP_IO_MODE) 2
+
+
   - SPICE deck creation for CMOS inverter
   - SPICE simulation lab for CMOS inverter
   - Switching Threshold Vm
