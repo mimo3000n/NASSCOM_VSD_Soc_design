@@ -815,14 +815,50 @@ check inverter with magic tool wit following command: **magic -T sky130A.tech sk
 
 ![2025-05-13_22-31-00](https://github.com/user-attachments/assets/1287af26-d226-4c7f-90ca-387e944f1fac)
 
+check if nmos or pmos:
+select green area and enter "what" in console window.
+
+![2025-05-14_21-40-12](https://github.com/user-attachments/assets/8d9efc19-8e21-4685-9eeb-d9caf6a89516)
+
+same is checking for pmos.
+
+![2025-05-14_21-42-37](https://github.com/user-attachments/assets/ddd6a15c-e380-4b28-8312-7bd6b2e7f762)
+
+to check connectivity of output select it with 2 times "s" so you see connection, in out example output is connected both with nmos & pmos, which is correct.
+
+![2025-05-14_21-45-01](https://github.com/user-attachments/assets/81c0bfed-881e-4110-b79b-1c0298786b60)
+
+![vsdstdcelldesign](https://github.com/nickson-jose/vsdstdcelldesign) show process of stad cell creation.
+
+create an extraction file in **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign** with "extract" command in magic console window
+
+![2025-05-14_22-02-26](https://github.com/user-attachments/assets/e97e4ca0-50bc-4b4d-866e-81fa63ca908b)
+
+check thes ext file is there
+
+![2025-05-14_22-04-15](https://github.com/user-attachments/assets/5c56a165-4134-4555-a720-e977bed21568)
+
+now we creat a spice file
+
+in console window enter:
+ext2spice cthresh 0 rthresh 0
+ext2spice
+
+![2025-05-14_22-09-33](https://github.com/user-attachments/assets/64d90a5f-3412-413a-9e2c-6522ef8ec210)
+
+spice file is there:
+
+![2025-05-14_22-11-50](https://github.com/user-attachments/assets/840eb9ef-4355-46a5-8a5c-22a4b592c222)
+
+contens of spice file:
+
+![2025-05-14_22-13-57](https://github.com/user-attachments/assets/d011260b-9c0e-49c8-87c5-e0a002143f2d)
+
+now run modified spice file
+
+![2025-05-14_22-44-34](https://github.com/user-attachments/assets/f5bf504c-3587-421f-819c-4ab272e795e9)
 
 
-
-
-
-
-
-  
 - Inception of Layout CMOS fabrication process
   - Create Active regions
   - Formation of N-well and P-well
@@ -837,8 +873,21 @@ check inverter with magic tool wit following command: **magic -T sky130A.tech sk
   - Lab steps to create final SPICE deck using Sky130 tech
   - Lab steps to characterize inverter using sky130 model files
   - Lab introduction to Magic tool option and DRC rules
+ 
+check [magic](http://opencircuitdesign.com/magic/index.html) for magic commands
+
+![2025-05-14_23-12-11](https://github.com/user-attachments/assets/173cf4ac-9774-40fe-8637-896f2846efd3)
+
+
+
+
   - Lab introduction to ky130 pks's and steps to download labs
   - Lab introduction to Magic and steps to load Sky130 tech-rules
+
+![2025-05-15_00-14-20](https://github.com/user-attachments/assets/454a24d0-2e95-49b0-b636-d43cbc25c4c1)
+
+
+
   - Lab exercise to fix poly.9error in Sky130 tech-file
   - Lab exercice to implöement poly resistors spacing to diff and tap
   - Lab challenge excercise to describe DRC error as geometrical construc
