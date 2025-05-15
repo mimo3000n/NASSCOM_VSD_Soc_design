@@ -900,11 +900,6 @@ now we plot output Y over time with command**plot yvs time a**
 ![15-05-2025_17-54-33](https://github.com/user-attachments/assets/75139d66-55b1-46ec-b620-6c48229f31e8)
 
 
-
-
-![2025-05-14_22-44-34](https://github.com/user-attachments/assets/f5bf504c-3587-421f-819c-4ab272e795e9)
-
-
 - Inception of Layout CMOS fabrication process
   - Create Active regions
   - Formation of N-well and P-well
@@ -920,21 +915,51 @@ now we plot output Y over time with command**plot yvs time a**
   - Lab steps to characterize inverter using sky130 model files
   - Lab introduction to Magic tool option and DRC rules
  
-check [magic](http://opencircuitdesign.com/magic/index.html) for magic commands
+to get more familar with magic have a loot to [magic](http://opencircuitdesign.com/magic/index.html) for details.
+Also have a look at goolgs Skywate side about 130mn process: [Skywater 130nm](https://skywater-pdk.readthedocs.io/en/main/index.html)
+a good reference is Google-Skywater github repo : - [Google-Skywater repo](https://github.com/google/skywater-pdk)
 
 ![2025-05-14_23-12-11](https://github.com/user-attachments/assets/173cf4ac-9774-40fe-8637-896f2846efd3)
 
 
 
 
-  - Lab introduction to ky130 pks's and steps to download labs
+  - Lab introduction to sky130 pks's and steps to download labs
+
+go to home directory: **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane**
+we download the labs via **wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz**
+
+![15-05-2025_18-30-10](https://github.com/user-attachments/assets/528958b8-3af7-4f7a-a6c4-e8deec203c70)
+
+extract lab files with **tar xfz drc_tests.tgz** and check *.mag files in drc_tests folder
+
+![15-05-2025_18-32-30](https://github.com/user-attachments/assets/ed2ac928-d37a-4bed-a27f-6ba8fb47bd04)
+
+we are using magic and in this drc_tests-folder is a .magicrc file containing all nessesary magic parameters
+
+to start magic do into drc_tests folder and tpye **magis -d XR**
+    
   - Lab introduction to Magic and steps to load Sky130 tech-rules
+
+		start magic -d XR and open file met3.mag
+
+![15-05-2025_18-41-43](https://github.com/user-attachments/assets/4b5b63ad-3dbf-4584-accb-7187ce6739dc)
 
 ![2025-05-15_00-14-20](https://github.com/user-attachments/assets/454a24d0-2e95-49b0-b636-d43cbc25c4c1)
 
+select a box in a free area, select m3contact area (where red arrow points) and enter in tkcons **cif see VIA2**, which show blackboxes in seceted area
+
+![15-05-2025_19-17-49](https://github.com/user-attachments/assets/f6511aee-cc97-4aed-bbeb-9b7e082bba4b)
 
 
   - Lab exercise to fix poly.9error in Sky130 tech-file
+
+now load poly.mag file from tkcon % load poly
+
+![15-05-2025_19-30-45](https://github.com/user-attachments/assets/e3a77ac9-1938-4de8-ba5a-ac675fb53711)
+
+
+
   - Lab exercice to implöement poly resistors spacing to diff and tap
   - Lab challenge excercise to describe DRC error as geometrical construc
   - Lab exercise to find missing or incorrect rules and fix them
