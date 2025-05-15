@@ -855,7 +855,52 @@ contens of spice file:
 
 ![2025-05-14_22-13-57](https://github.com/user-attachments/assets/d011260b-9c0e-49c8-87c5-e0a002143f2d)
 
-now run modified spice file
+modifiy spice file
+
+add .include...., add VDD & VSS line, add Va .... line, add .trans 1n 20n, .contro,.end., .end.
+
+```spice
+* SPICE3 file created from sky130_inv.ext - technology: sky130A
+
+.option scale=0.01u
+.include ./libs/pshort.lib
+.include ./libs/nshort.lib
+
+//.subckt sky130_inv A Y VPWR VGND
+M1000 Y A VPWR VPWR pshort_model.0 w=37 l=23
++  ad=1443 pd=152 as=1517 ps=156
+M1001 Y A VGND VGND nshort_model.0 w=35 l=23
++  ad=1435 pd=152 as=1365 ps=148
+VDD VPWR 0 3.3V
+VSS VGND 0 0V
+Va A VGND PULSE(0V 3.3V 0 0.1ns 0.1ns 2ns 4ns)
+C0 A Y 0.05fF
+C1 Y VPWR 0.11fF
+C2 A VPWR 0 0.07fF
+C3 Y 0 0.24fF
+C4 VPWR 0 0.59fF
+//.ends
+.tran 1n 20n
+
+.control
+run
+.endc
+.end
+
+
+```
+now run modified spice file with ngspice: **ngspice sky130_inv.spice*
+
+![15-05-2025_18-02-31](https://github.com/user-attachments/assets/49d04f97-fb34-4f25-a553-dd4ba859803b)
+
+now we plot output Y over time with command**plot yvs time a**
+
+![15-05-2025_18-03-48](https://github.com/user-attachments/assets/2e703210-6c29-454f-845c-8c33849c5e8b)
+
+![15-05-2025_17-54-33](https://github.com/user-attachments/assets/75139d66-55b1-46ec-b620-6c48229f31e8)
+
+
+
 
 ![2025-05-14_22-44-34](https://github.com/user-attachments/assets/f5bf504c-3587-421f-819c-4ab272e795e9)
 
