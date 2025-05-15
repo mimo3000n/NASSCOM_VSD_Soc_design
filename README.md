@@ -804,7 +804,8 @@ git clone https://github.com/nickson-jose/vsdstdcelldesign.git
 
 copy tech file to vsdstdcelldesign folder
 
-cd /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic 
+cd /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic
+
 cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign/
 
 verify that tech file is in folder
