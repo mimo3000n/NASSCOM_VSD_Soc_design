@@ -958,11 +958,221 @@ now load poly.mag file from tkcon % load poly
 
 ![15-05-2025_19-30-45](https://github.com/user-attachments/assets/e3a77ac9-1938-4de8-ba5a-ac675fb53711)
 
+we focus on poly9, see the error an fix the problem
+
+![16-05-2025_11-12-35](https://github.com/user-attachments/assets/754f61b2-96e5-42e6-864d-97167cd83af1)
+
+
+
+
 
 
   - Lab exercice to implöement poly resistors spacing to diff and tap
-  - Lab challenge excercise to describe DRC error as geometrical construc
+
+to fix the error we have to open the sky130A.tech file in drc_tests folder.
+In file search for **poly.9**, which can be found on 2 places:
+
+```tech
+#-----------------------------
+# POLY
+#-----------------------------
+
+ width allpoly 150 "poly.width < %d (poly.1a)"
+ spacing allpoly allpoly 210 touching_ok "poly.spacing < %d (poly.2)"
+ spacing allpolynonfet alldifflvnonfet 75 corner_ok allfets \
+        "poly.spacing to Diffusion < %d (poly.4a)"
+ spacing npres *nsd 480 touching_illegal \
+        "poly.resistor spacing to N-tap < %d (poly.9)"
+ overhang *ndiff,rndiff nfet,scnfet,npd,npass 250 "N-Diffusion overhang of nmos < %d (poly.7)"
+ overhang *mvndiff,mvrndiff mvnfet,mvnnfet 250 \
+        "N-Diffusion overhang of nmos < %d (poly.7)"
+```
+
+and 
+
+```tech
+#--------------------------------------------------
+# uhrpoly (P+ poly resistor, 2kOhm/sq)
+#--------------------------------------------------
+
+  width uhrpoly 350 "uhrpoly resistor width < %d"
+  spacing xhrpoly,uhrpoly,xpc alldiff 480 touching_illegal \
+        "xhrpoly/uhrpoly resistor spacing to diffusion < %d (poly.9)"
+
+```
+
+change i to following:
+
+```tech
+#-----------------------------
+# POLY
+#-----------------------------
+
+ width allpoly 150 "poly.width < %d (poly.1a)"
+ spacing allpoly allpoly 210 touching_ok "poly.spacing < %d (poly.2)"
+ spacing allpolynonfet alldifflvnonfet 75 corner_ok allfets \
+        "poly.spacing to Diffusion < %d (poly.4a)"
+ spacing npres *nsd 480 touching_illegal \
+        "poly.resistor spacing to N-tap < %d (poly.9)"
+ spacing npres allpolynonres 480 touching_illegal \
+        "poly.resistor spacing to N-tap < %d (poly.9)"
+
+```
+and 
+
+```tech
+#--------------------------------------------------
+# uhrpoly (P+ poly resistor, 2kOhm/sq)
+#--------------------------------------------------
+
+  width uhrpoly 350 "uhrpoly resistor width < %d"
+  spacing xhrpoly,uhrpoly,xpc alldiff 480 touching_illegal \
+        "xhrpoly/uhrpoly resistor spacing to diffusion < %d (poly.9)"
+
+  spacing xhrpoly,uhrpoly,xpc allpolynonres 480 touching_illegal \
+        "xhrpoly/uhrpoly resistor spacing to diffusion < %d (poly.9)"
+
+
+```
+
+after changing file sky130A.text you have to reload the file via tkcons, type **tech load sky130A.text**
+
+![16-05-2025_11-32-39](https://github.com/user-attachments/assets/008b688e-9d29-496c-a9cc-384b31da0158)
+
+to rerun check type in tkcons: **drc check**
+
+now we see that spacing between resitor and poly is fixed
+
+![16-05-2025_11-36-01](https://github.com/user-attachments/assets/131d8fa4-e148-483e-a089-6f9a7b996e58)
+
+its no complet fixed - let do it now.
+
+to find the error type in tkcons **drc why**
+
+% drc why
+mrp1 resistor width < 0.33um (poly.3)
+xhrpoly/uhrpoly resistor spacing to diffusion < 0.48um (poly.9)
+poly.resistor spacing to N-tap < 0.48um (poly.9)
+% 
+
+make again changes in sky130A.tech file for fixing: changs ***nsd** to **allpoly**, load tech-file and do a drc check.
+
+```tech
+#-----------------------------
+# POLY
+#-----------------------------
+
+ width allpoly 150 "poly.width < %d (poly.1a)"
+ spacing allpoly allpoly 210 touching_ok "poly.spacing < %d (poly.2)"
+ spacing allpolynonfet alldifflvnonfet 75 corner_ok allfets \
+        "poly.spacing to Diffusion < %d (poly.4a)"
+ spacing npres alldiff 480 touching_illegal \
+        "poly.resistor spacing to N-tap < %d (poly.9)"
+ spacing npres allpolynonres 480 touching_illegal \
+        "poly.resistor spacing to N-tap < %d (poly.9)"
+
+```
+
+![16-05-2025_11-52-18](https://github.com/user-attachments/assets/8b63cb45-77c0-4090-b884-9f3ec291522b)
+
+
+
+  - Lab challenge excercise to describe DRC error as geometrical construct
+
+ruletype cifmaxwdth in sky130A.text section DNWELL
+
+```tech
+#-----------------------------
+# DNWELL
+#-----------------------------
+
+ width dnwell 3000 "Deep N-well width < %d (dnwell.2)"
+ spacing dnwell dnwell 6300 touching_ok "Deep N-well spacing < %d (dnwell.3)"
+ spacing dnwell allnwell 4500 surround_ok \
+        "Deep N-well spacing to N-well < %d (nwell.7)"
+ cifmaxwidth nwell_missing 0 bend_illegal \
+        "N-well overlap of Deep N-well < 0.4um outside, 1.03um inside (nwell.5a, 7)"
+ cifmaxwidth dnwell_missing 0 bend_illegal \
+        "SONOS nFET must be in Deep N-well (tunm.6a)"
+
+```
+
+seach for templayer nwell_missing in tech file
+
+```tech
+ templayer nwell_missing dnwell
+ grow 400
+ and-not dnwell_shrink
+ and-not nwell
+
+ # SONOS nFET devices must be in deep nwell
+ templayer dnwell_missing nsonos
+ and-not dnwell
+
+```
+
+load nwill.mag
+
+look at nwell.6
+
+![16-05-2025_12-04-17](https://github.com/user-attachments/assets/67682179-3eb2-4327-b687-547241c65680)
+
+type in tkcons: **cif ostyle drc**, **cif see dnwell_shrink**, **feed clear**, **cif see nwell_missing**, **feed clear**
+
+![16-05-2025_12-17-33](https://github.com/user-attachments/assets/1cc42f3a-a721-4979-93a9-9761ee5faa9a)
+
   - Lab exercise to find missing or incorrect rules and fix them
+
+now we try to fix nwell.4
+
+add to NWELL section in sky130A.text file **cifmaxwidth nwell_untrapped 0 bend_illegal \
+        "Nwell missing tap (nwell.4)"**, shown below
+
+```tech
+#-----------------------------
+# NWELL
+#-----------------------------
+
+ width allnwell 840 "N-well width < %d (nwell.1)"
+ spacing allnwell allnwell 1270 touching_ok "N-well spacing < %d (nwell.2a)"
+
+ cifmaxwidth nwell_untrapped 0 bend_illegal \
+        "Nwell missing tap (nwell.4)"
+
+```
+
+search for nwell_missing and creat below create 2 temp-layer, **nwell_tapped** and **nwell_untapped**
+
+```tech
+ templayer nwell_missing dnwell
+ grow 400
+ and-not dnwell_shrink
+ and-not nwell
+
+ templayer nwell_tapped
+ bloat-all nsc nwell
+
+ templayer nwell_untapped
+ and-not nwell_tapped
+
+```
+
+now go back to cifmaxwith, addin variants in following way
+
+```tech
+ variants(full)
+ cifmaxwidth nwell_untrapped 0 bend_illegal \
+        "Nwell omissing tap (nwell.4)"
+ variants *
+
+```
+
+after saving do a tech load **sky130A.tech** and a **drc check* again to see if there are errors.
+
+![16-05-2025_12-42-37](https://github.com/user-attachments/assets/fa74a389-b07d-433b-acc9-db1822a61432)
+
+now do in tkcons: **drc style drc(full)** and **drc check***
+
  
 </details>
 
