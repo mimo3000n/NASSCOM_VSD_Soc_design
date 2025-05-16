@@ -1182,8 +1182,217 @@ now do in tkcons: **drc style drc(full)** and **drc check***
 
 - Timing modelling using delay tables
   - Lab steps to convert grid info to track info
+ 
+	open aigan mag file of given inverter:
+
+	goto **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign** folder
+	start magic: **magic -T sky130A.tech sky130_inv.mag**
+
+now lets extract the lef file, they layout is already done.
+
+goto **/home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd** folder and check **trackers.info** file
+
+``ìnfo
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd$ more tracks.info
+li1 X 0.23 0.46
+li1 Y 0.17 0.34
+met1 X 0.17 0.34
+met1 Y 0.17 0.34
+met2 X 0.23 0.46
+met2 Y 0.23 0.46
+met3 X 0.34 0.68
+met3 Y 0.34 0.68
+met4 X 0.46 0.92
+met4 Y 0.46 0.92
+met5 X 1.70 3.40
+met5 Y 1.70 3.40
+```
+
+activate grid in magic by pressing "g" and zoom in to see grid.
+
+![16-05-2025_13-09-11](https://github.com/user-attachments/assets/7385cce8-d455-4652-a22d-26f03d5c6e14)
+
+set now grid base on X & Y out of tracks.info in tkcon
+
+**grid 0.46um 0.34um 0.23um 0.17um**
+
+![16-05-2025_14-58-38](https://github.com/user-attachments/assets/aff13999-4077-415d-a9d2-b000f13a53e9)
+
+the basment routing have to happen is this grid.
+
+
   - Lab step to convert magiv layout to std cell LEF
+
+extract a lef file from std inverter cell with **lef write** in tkcon
+
+![16-05-2025_15-26-22](https://github.com/user-attachments/assets/abae5f66-cd3a-4617-aa68-12aa03ab83f7)
+
+now lest have a look to the LEF-file:
+
+```lef
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign$ more sky130_vsdinv.lef
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+MACRO sky130_vsdinv
+  CLASS CORE ;
+  FOREIGN sky130_vsdinv ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 1.380 BY 2.720 ;
+  SITE unithd ;
+  PIN A
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAGATEAREA 0.165600 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.060 1.180 0.510 1.690 ;
+    END
+  END A
+  PIN Y
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 0.287800 ;
+    PORT
+      LAYER li1 ;
+        RECT 0.760 1.960 1.100 2.330 ;
+        RECT 0.880 1.690 1.050 1.960 ;
+        RECT 0.880 1.180 1.330 1.690 ;
+        RECT 0.880 0.760 1.050 1.180 ;
+        RECT 0.780 0.410 1.130 0.760 ;
+    END
+  END Y
+  PIN VPWR
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER nwell ;
+        RECT -0.200 1.140 1.570 3.040 ;
+      LAYER li1 ;
+        RECT -0.200 2.580 1.430 2.900 ;
+        RECT 0.180 2.330 0.350 2.580 ;
+        RECT 0.100 1.970 0.440 2.330 ;
+      LAYER mcon ;
+        RECT 0.230 2.640 0.400 2.810 ;
+        RECT 1.000 2.650 1.170 2.820 ;
+      LAYER met1 ;
+        RECT -0.200 2.480 1.570 2.960 ;
+    END
+  END VPWR
+  PIN VGND
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER li1 ;
+        RECT 0.100 0.410 0.450 0.760 ;
+        RECT 0.150 0.210 0.380 0.410 ;
+        RECT 0.000 -0.150 1.460 0.210 ;
+      LAYER mcon ;
+        RECT 0.210 -0.090 0.380 0.080 ;
+        RECT 1.050 -0.090 1.220 0.080 ;
+      LAYER met1 ;
+        RECT -0.110 -0.240 1.570 0.240 ;
+    END
+  END VGND
+END sky130_vsdinv
+END LIBRARY
+
+
+```
+
+lef file ist done, now we plug our inverter to pico32rv.
+first we have to move our design files to the src folder: **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src**
+
+
+
   - Introduction to timing libs and steps to inculde new cell in synthesis
+
+cp LEF-file into src dir:
+
+** cp sky130_vsdinv.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src**
+
+copy libs to src-folder too
+
+**cp sky*.lib /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src**
+
+![16-05-2025_16-00-17](https://github.com/user-attachments/assets/fd19fef5-7b24-45a1-bce0-335ec1330f1f)
+
+now we have modify config.tcl
+
+goto folder:**/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a** and open **config.tcl**
+
+```tcl
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a$ more config.tcl
+
+# Design
+set ::env(DESIGN_NAME) "picorv32a"
+
+set ::env(VERILOG_FILES) "./designs/picorv32a/src/picorv32a.v"
+set ::env(SDC_FILE) "./designs/picorv32a/src/picorv32a.sdc"
+
+set ::env(CLOCK_PERIOD) "5.000"
+set ::env(CLOCK_PORT) "clk"
+
+
+set ::env(CLOCK_NET) $::env(CLOCK_PORT)
+
+
+
+
+set filename $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
+if { [file exists $filename] == 1} {
+	source $filename
+}
+
+```
+adapt file to following contens:
+
+```tcl
+
+# Design
+set ::env(DESIGN_NAME) "picorv32a"
+
+set ::env(VERILOG_FILES) "./designs/picorv32a/src/picorv32a.v"
+set ::env(SDC_FILE) "./designs/picorv32a/src/picorv32a.sdc"
+
+set ::env(CLOCK_PERIOD) "12.000"
+set ::env(CLOCK_PORT) "clk"
+
+
+set ::env(CLOCK_NET) $::env(CLOCK_PORT)
+
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTES) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+
+set filename $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
+if { [file exists $filename] == 1} {
+        source $filename
+}
+
+```
+
+now start normal openlane flow via docker.
+
+to use a specific run-folder use following command in openlane: **prep -design picorv32a -tag 13-05_16-03 -overwrite**
+
+![16-05-2025_16-52-05](https://github.com/user-attachments/assets/c1d7a3c8-96a0-4bea-8a17-7e4f52f68564)
+
+
+were 13-05_16-03 is my lates run-folder
+
+![16-05-2025_16-37-47](https://github.com/user-attachments/assets/5c945b76-336e-4a27-8444-bd4f2f9efaab)
+
+
+
+
+
+
+
   - Introduction to delay tables
   - Delay table usage Part 1
   - Delay table using Part 2
