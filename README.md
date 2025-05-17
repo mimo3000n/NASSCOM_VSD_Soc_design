@@ -1388,8 +1388,16 @@ were 13-05_16-03 is my lates run-folder
 ![16-05-2025_16-37-47](https://github.com/user-attachments/assets/5c945b76-336e-4a27-8444-bd4f2f9efaab)
 
 
+we have to set in openlane following environment:
 
+**set lefs [glob $::env(DESIGN_DIR)/src/*.lef]**
+**add_lefs -src $lefs**
 
+![16-05-2025_17-46-31](https://github.com/user-attachments/assets/7d69a377-92d7-4ba6-8682-c7c83e17b761)
+
+cell is used in synthesis
+
+![16-05-2025_17-49-28](https://github.com/user-attachments/assets/8b1f1865-7dcf-465c-a8bc-50d8b401934b)
 
 
 
@@ -1397,7 +1405,66 @@ were 13-05_16-03 is my lates run-folder
   - Delay table usage Part 1
   - Delay table using Part 2
   - Lab steps to configure systhesis stetting to fix slack and inculde vsdinv
+
+set different variables and rerun synthesis
+
+![16-05-2025_18-09-21](https://github.com/user-attachments/assets/0e531610-f33a-4610-9d59-3ec521d2040b)
+
+% echo $::env(SYNTH_STRATEGY)
+AREA 0
+% set ::env(SYNTH_STRATEGY) "AREA 1"
+1
+
+% echo $::env(SYNTH_SIZING)
+0
+% set ::env(SYNTH_SIZING) 1
+1
  
+results directory: 17-05_10-34
+
+``òpenLANE
+prep -design picorv32a -tag 17-05_10-34 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+echo $::env(SYNTH_STRATEGY)
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+echo $::env(SYNTH_BUFFERING)
+echo $::env(SYNTH_SIZING)
+set ::env(SYNTH_SIZING) 1
+echo $::env(SYNTH_DRIVING_CELL)
+run_synthesis
+run_floorplan
+```
+![17-05-2025_16-58-23](https://github.com/user-attachments/assets/fa98ac82-5c13-446a-bdaa-3bf277ce4451)
+
+to correct floorplan error run:
+
+``òpenLANE
+init_floorplan
+place_io
+tap_decap_or
+```
+![17-05-2025_16-59-23](https://github.com/user-attachments/assets/e86b1b57-3d1f-41fa-a933-aad3701e78ec)
+![17-05-2025_16-59-52](https://github.com/user-attachments/assets/581eec81-1dd0-46ef-bd7a-143734fcb172)
+![17-05-2025_17-00-33](https://github.com/user-attachments/assets/bd001aab-a761-4095-8c76-ee8dd74f23ad)
+
+run_placement
+
+![17-05-2025_17-02-49](https://github.com/user-attachments/assets/db8ab23e-7f0a-4b60-a995-9927eefec0af)
+
+and validate via magic: **magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &**, in folder **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_10-34/results/placement**
+
+![17-05-2025_17-13-05](https://github.com/user-attachments/assets/c2f06991-ae06-4f4e-89ac-4fce5ce2ee60)
+
+check vsdinverter
+
+![17-05-2025_17-12-34](https://github.com/user-attachments/assets/421aeba8-5814-4569-8269-2a7807a6ca0c)
+
+
+   run **expand** command in tkcons
+
+![17-05-2025_17-21-49](https://github.com/user-attachments/assets/434caf29-7560-4165-9ed3-1e1ddc5c3d7a)
+
    
 - Timing analysis with idesl clocks using openSTA
   - Setup timing analysis and introduction to flip-flop setup time
