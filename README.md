@@ -1467,6 +1467,9 @@ check vsdinverter
 
    
 - Timing analysis with idesl clocks using openSTA
+
+
+
   - Setup timing analysis and introduction to flip-flop setup time
   - Introduction to clock jitter and uncertainty
   - Lab steps to configure OpenmSTA for post-synth timing analysis
@@ -1478,6 +1481,37 @@ check vsdinverter
   - Clock tree routing and buffering using H-Tree alogorithm
   - Crosstalk and clock net shielding
   - Lap steps to run CTS using Triton CTS
+ 
+goto **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_19-21/results/synthesis**
+
+save synthesis.v file
+
+cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+
+run_synthesis with following command sequence
+
+```openlane
+prep -design picorv32a -tag 17-05_10-34 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+init_floorplan
+place_io
+tap_decap_or
+run_placement
+run_cts
+```
+![17-05-2025_22-28-33](https://github.com/user-attachments/assets/c0b33061-e43d-4973-a25e-345e7ba9fe79)
+
+![17-05-2025_22-33-07](https://github.com/user-attachments/assets/4657b094-1c8a-4308-9430-eea4eb877530)
+
+check if .cts file has been created
+
+![17-05-2025_22-39-59](https://github.com/user-attachments/assets/ac91b5dc-cfcc-4eaa-baaa-7c791c559e0b)
+
+
   - Lab steps to verify CTS runs
  
 
@@ -1518,26 +1552,26 @@ report_wns
 now lets create a **my_base.sdc** in folder **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src** with following contens
 
 ```sdc
-set ::env(CLOCK_PORT)clk
-set ::env(CLOCK_PERIOD) 24.73
+set ::env(CLOCK_PORT) clk
+set ::env(CLOCK_PERIOD) 12.000
 #set ::env(SYNTH_DRIVING_CELL) sky130_vsdinv
 set ::env(SYNTH_DRIVING_CELL) sky130_fd_sc_hd__inv_8
 set ::env(SYNTH_DRIVING_CELL_PIN) Y
-set ::env(SYNTH-CAP_LOAD) 17.653
+set ::env(SYNTH_CAP_LOAD) 17.653
 set ::env(IO_PCT) 0.2
 set ::env(SYNTH_MAX_FANOUT) 6
 
 create_clock [get_ports $::env(CLOCK_PORT)]  -name $::env(CLOCK_PORT)  -period $::env(CLOCK_PERIOD)
 
-set input_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)
-set output_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)
+set input_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)]
+set output_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)]
 
-puts "\[INFO\]: Setting output delay to: $output_delay_value
-puts "\[INFO\]: Setting input delay to: $input_delay_value
+puts "\[INFO\]: Setting output delay to: $output_delay_value"
+puts "\[INFO\]: Setting input delay to: $input_delay_value"
 
 set_max_fanout $::env(SYNTH_MAX_FANOUT) [current_design]
 
-set clk_indx [lsearch [all_inputs] [get_port $:env(CLOCK_PORT)]]
+set clk_indx [lsearch [all_inputs] [get_port $::env(CLOCK_PORT)]]
 #set rst_indx[lseanch [all_inputs] [get_port resetn]]
 
 set all_inputs_wo_clk [lreplace [all_inputs] $clk_indx $clk_indx]
@@ -1545,22 +1579,101 @@ set all_inputs_wo_clk [lreplace [all_inputs] $clk_indx $clk_indx]
 set all_inputs_wo_clk_rst $all_inputs_wo_clk
 
 #correct resetn
-set_input_delay $input_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] $all_inputs_wo-clk_rst
+set_input_delay $input_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] $all_inputs_wo_clk_rst
 #set_input_delay 0.0 -clock [get_clocks $::env(CLOCK_PORT)] {resetn}
 set_output_delay $output_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] [all_outputs]
 
 #TODO set this as parameter
-set_driving_cell -lib_cell $:env(SYNTH_DRIVING_CELL)  -pin $::env(SYNTH_DRIVING_CELL_PIN) [all_inputs]
+set_driving_cell -lib_cell $::env(SYNTH_DRIVING_CELL)  -pin $::env(SYNTH_DRIVING_CELL_PIN) [all_inputs]
+set cap_load [expr $::env(SYNTH_CAP_LOAD) / 1000.0]
 puts "\[INFO\]: setting load to: $cap_load"
 set_load $cap_load [all_outputs]
 
-
 ```
+
+![17-05-2025_21-18-28](https://github.com/user-attachments/assets/0e589d19-7bcf-4954-afa7-d2e74201014f)
 
 
 
   - Lab steps to execute OpenSTA with rigth timing libraries and CTS assignment
+
+
+To Create an OpenROAD database file named pico_cts.db
+
+run now **openroad**
+
+![17-05-2025_22-50-36](https://github.com/user-attachments/assets/42b593bc-fabd-4f19-b44e-c12e6cabea97)
+
+read_lef /openLANE_flow/designs/picorv32a/runs/17-05_10-34/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/17-05_10-34/results/cts/picorv32a.cts.def
+write_db pico_cts.db
+
+![17-05-2025_23-06-23](https://github.com/user-attachments/assets/2873ee7c-e639-4a99-9494-24568f30df3c)
+
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/17-05_10-34/results/synthesis/picorv32a.synthesis_cts.v
+
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+
+link_design picorv32a
+
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
+set_propagated_clock [all_clocks]
+
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+![17-05-2025_23-16-38](https://github.com/user-attachments/assets/844c7c9c-92d5-4ebc-a9dc-c6fcff90f5f7)
+
+![17-05-2025_23-17-24](https://github.com/user-attachments/assets/ca912c75-22ac-44ca-a0d6-0b24d2d745b6)
+
   - Lab steps to observe impact of bigger CTS buffers on setup and hold timing
+
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+echo $::env(CTS_CLK_BUFFER_LIST)
+echo $::env(CURRENT_DEF)
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/02-04_05-27/results/placement/picorv32a.placement.def
+
+![17-05-2025_23-21-26](https://github.com/user-attachments/assets/39b1e1c2-f2d4-4553-9676-7741c53cc3bb)
+
+run_cts
+
+![17-05-2025_23-23-35](https://github.com/user-attachments/assets/213da77a-2857-4020-90f2-327aacda3662)
+
+check echo $::env(CTS_CLK_BUFFER_LIST)
+% echo $::env(CTS_CLK_BUFFER_LIST)
+sky130_fd_sc_hd__clkbuf_2 sky130_fd_sc_hd__clkbuf_4 sky130_fd_sc_hd__clkbuf_8
+%
+
+
+
+
+read_lef /openLANE_flow/designs/picorv32a/runs/17-05_10-34/tmp/merged.lef
+read_def /openLANE_flow/designs/picorv32a/runs/17-05_10-34/results/cts/picorv32a.cts.def
+write_db pico_cts1.db
+read_db pico_cts.db
+read_verilog /openLANE_flow/designs/picorv32a/runs/17-05_10-34/results/synthesis/picorv32a.synthesis_cts.v
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+link_design picorv32a
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+set_propagated_clock [all_clocks]
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+report_clock_skew -hold
+report_clock_skew -setup
+exit
+
+![17-05-2025_23-29-08](https://github.com/user-attachments/assets/2018c9bb-f785-437d-bc62-b81f60c6efd6)
+
+![17-05-2025_23-29-56](https://github.com/user-attachments/assets/febfb9d7-5d0d-4ccc-8559-e923393d54de)
+
+![17-05-2025_23-30-49](https://github.com/user-attachments/assets/1037115f-5f7b-418b-ac22-d6cb9179136d)
+
+![17-05-2025_23-31-48](https://github.com/user-attachments/assets/58f0c3e7-eb5b-49dd-963c-1c3b9adffa92)
+
+
+
+
+
   
 </details>
 
@@ -1575,6 +1688,35 @@ set_load $cap_load [all_outputs]
     
 - Power Distribution Network and routing
   - Lab steps to build power distribution network
+ 
+now build the PDN with gen_pdn
+
+![17-05-2025_23-37-06](https://github.com/user-attachments/assets/6f988729-51c1-440f-90b7-721fb60b3af0)
+
+% echo $::env(CURRENT_DEF)
+/openLANE_flow/designs/picorv32a/runs/17-05_10-34/tmp/floorplan/17-pdn.def
+% 
+![17-05-2025_23-39-54](https://github.com/user-attachments/assets/51ca0ac3-be01-48cb-be79-f98eb7aac604)
+
+check Router definition:
+% echo $::env(GLOBAL_ROUTER)
+fastroute
+
+% echo $::env(DETAILED_ROUTER)
+tritonroute
+% 
+
+![17-05-2025_23-53-46](https://github.com/user-attachments/assets/fef8b195-238a-4662-b0c7-1e96bb96cb12)
+
+now run_routing
+
+
+
+
+
+
+
+
   - Lab steps from power straps to std cell power
   - Basic of global and drtail routing and configure TritonRoute
     
