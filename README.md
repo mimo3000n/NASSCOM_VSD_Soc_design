@@ -1718,10 +1718,11 @@ check violations:
 
 now validate design with magic in openlane folder
 
-magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_10-34/results/tmp/merged.lef def read /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_10-34/results/routing/picorv32a.def
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_10-34/tmp/merged.lef def read /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_10-34/results/routing/picorv32a.def
 
 ![image](https://github.com/user-attachments/assets/e518297d-ecd4-41ba-bd91-34eeec36c5b9)
 
+![18-05-2025_01-24-31](https://github.com/user-attachments/assets/43cbbcaa-f662-4092-8c7b-d112c0d4d53e)
 
   - Lab steps from power straps to std cell power
   - Basic of global and drtail routing and configure TritonRoute
