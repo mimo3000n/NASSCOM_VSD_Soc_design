@@ -1485,6 +1485,43 @@ check vsdinverter
   - Setup timing analysis using real clocks
   - Hold timinng analysis using real clocks
   - Lab steps to analyze timing with real clocks using OpenSTA
+ 
+run following comands
+
+``òpenlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+set ::env(SYNTH_SIZING) 1
+run_synthesis
+```
+![17-05-2025_17-33-58](https://github.com/user-attachments/assets/78a8ee3d-6c1e-4b23-9c4c-feb96066e423)
+
+now we have to create a pre_sta.conf file with following contens.
+
+```conf
+set_cmd_units -time ns -capacitance pF -current mA -voltage V -resistance kOhm -distance um
+read_liberty -max  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib
+read_liberty -min  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib
+read_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-05_15-31/results/synthesis/picorv32a.synthesis.v
+link design picorv32a
+read_sdc /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/base.sdc
+report_checks -path_delay min_max -fields {slew trans net cap input_pin}
+report_tns
+report_wns
+```
+
+now lets create a **my_base.sdc** in folder **/home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src** with following contens
+
+```sdc
+
+```
+
+
+
   - Lab steps to execute OpenSTA with rigth timing libraries and CTS assignment
   - Lab steps to observe impact of bigger CTS buffers on setup and hold timing
   
