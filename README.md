@@ -901,6 +901,58 @@ now we plot output Y over time with command**plot yvs time a**
 
 - Inception of Layout CMOS fabrication process
   - Create Active regions
+ 
+16-mask CMOS process
+
+well-doping area on substrate is where you place the nmos & pmos
+
+![18-05-2025_12-19-20](https://github.com/user-attachments/assets/e0519207-8c1f-40e8-8b89-a208ffeab41f)
+
+active regions called bockets where trasisors will be created, its called the active region for transistors.
+first is to create isolation, so we grow 40nm of SiO2 (Silocondioxide),next layer is 80nm of Si3N4 (Siliconnitrate), next step is to create to buckets.
+For that we place 1um of fotoresist, 
+
+![18-05-2025_12-27-55](https://github.com/user-attachments/assets/c2d1fdfc-0b2e-4687-8914-22b582214930)
+
+next we place our 1 mask
+
+![18-05-2025_12-29-12](https://github.com/user-attachments/assets/8e8dcdaa-c014-406e-a8a6-a08d5ee1ec31)
+
+due to UV ligth and chemical reaction we create pattern like in below slide
+
+![18-05-2025_12-35-55](https://github.com/user-attachments/assets/88e47328-1c69-4e36-8fb1-debbfe349218)
+
+next step is to remove the mask
+
+![18-05-2025_12-37-40](https://github.com/user-attachments/assets/e919e901-c4fb-48ca-9fbf-4fce43732981)
+
+now we remove the protection layer , Siliconnitrat will be eched off, 
+
+![18-05-2025_12-44-28](https://github.com/user-attachments/assets/0724011e-d58a-4b8d-a214-3ce421687ec6)
+
+now fotoresist will be removed
+
+![18-05-2025_12-48-01](https://github.com/user-attachments/assets/57e6ccd3-6969-400a-94b1-de5075baa395)
+
+we put the strucure now in an oxidation furnace (up 900C-1000C), result will like this.
+
+![18-05-2025_12-54-34](https://github.com/user-attachments/assets/6389c52d-f1cc-4d09-9eef-95f6266ad587)
+
+with this we have defined isolation areas, this process is call "LOCOS"
+
+![18-05-2025_13-00-37](https://github.com/user-attachments/assets/a6a22706-655c-42e6-af09-eb6910875688)
+
+next Siliconnitrat will be removed with phosphoric acid 
+
+![18-05-2025_13-05-49](https://github.com/user-attachments/assets/dda4ef70-8463-4dff-9906-cbe9f8a129a7)
+
+![18-05-2025_13-05-49](https://github.com/user-attachments/assets/bc180bd8-c6e4-4d01-b6e2-dc7753c6d509)
+
+
+
+
+
+
   - Formation of N-well and P-well
   - Ligthly dopes drain (LDD) formation
   - Source drain formation
