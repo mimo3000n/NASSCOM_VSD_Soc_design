@@ -932,11 +932,11 @@ now we remove the protection layer , Siliconnitrat will be eched off,
 
 now fotoresist will be removed
 
-![18-05-2025_12-48-01](https://github.com/user-attachments/assets/57e6ccd3-6969-400a-94b1-de5075baa395)
+![18-05-2025_13-12-19](https://github.com/user-attachments/assets/2c444949-14f9-40cf-80a1-7821abef1c63)
 
 we put the strucure now in an oxidation furnace (up 900C-1000C), result will like this.
 
-![18-05-2025_12-54-34](https://github.com/user-attachments/assets/6389c52d-f1cc-4d09-9eef-95f6266ad587)
+![18-05-2025_13-15-11](https://github.com/user-attachments/assets/f576fcb1-3212-4544-97d3-2945c476350b)
 
 with this we have defined isolation areas, this process is call "LOCOS"
 
