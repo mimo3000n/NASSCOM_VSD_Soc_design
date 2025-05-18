@@ -926,7 +926,7 @@ next step is to remove the mask
 
 ![18-05-2025_12-37-40](https://github.com/user-attachments/assets/e919e901-c4fb-48ca-9fbf-4fce43732981)
 
-now we remove the protection layer , Siliconnitrat will be eched off, 
+now we remove the protection layer , Siliconnitrat will be eched off.
 
 ![18-05-2025_12-44-28](https://github.com/user-attachments/assets/0724011e-d58a-4b8d-a214-3ce421687ec6)
 
