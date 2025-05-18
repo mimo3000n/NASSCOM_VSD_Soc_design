@@ -946,13 +946,45 @@ next Siliconnitrat will be removed with phosphoric acid
 
 ![18-05-2025_13-05-49](https://github.com/user-attachments/assets/dda4ef70-8463-4dff-9906-cbe9f8a129a7)
 
-
-
-
-
-
-
   - Formation of N-well and P-well
+
+n-well and p-well formation, for that we have to protect one area were we fabricate the outher area
+same steps will be done a befor - we start with pacing a fotoresinstance area
+
+![18-05-2025_13-32-55](https://github.com/user-attachments/assets/b0b4a06c-6323-49bf-af00-5552f6387744)
+
+with Mask 2 we portect left area of chip
+
+![18-05-2025_13-34-18](https://github.com/user-attachments/assets/62a06501-4cb2-45fd-abea-d7e679b1eaf8)
+
+if we look into your inverter layout, the rigth area show how Mask 2 will look like
+
+![18-05-2025_13-35-34](https://github.com/user-attachments/assets/c3ad8250-896b-47e8-a136-e913db731814)
+
+next we put UV ligth and the rigth area will be exposed, left area will be protected by mask
+
+![18-05-2025_13-37-35](https://github.com/user-attachments/assets/2a6b6057-82ca-4fe4-96d2-b0374bc07c4a)
+
+now you wash it out with following result
+
+![18-05-2025_13-45-45](https://github.com/user-attachments/assets/99ace824-3409-473a-a7bd-fca6d32f7734)
+
+rigth area is now availablefor any chemical reaction, next step is to remove the mask
+
+![18-05-2025_13-48-19](https://github.com/user-attachments/assets/4c55518e-f3cd-4d2a-909c-77b700474ee3)
+
+finaly we have to create a P-Well, which is done with Boron, which is a p-type material
+
+
+
+
+
+
+
+
+
+
+
   - Ligthly dopes drain (LDD) formation
   - Source drain formation
   - Local interconnection formatation
