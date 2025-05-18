@@ -973,17 +973,85 @@ rigth area is now availablefor any chemical reaction, next step is to remove the
 
 ![18-05-2025_13-48-19](https://github.com/user-attachments/assets/4c55518e-f3cd-4d2a-909c-77b700474ee3)
 
-finaly we have to create a P-Well, which is done with Boron, which is a p-type material
+finaly we have to create a P-Well, which is done with Boron, which is a p-type material, the prcess is called Ion implantation
+a short P-Well will be generated and the amount of energy needed is *200eV
+
+![18-05-2025_14-59-09](https://github.com/user-attachments/assets/735494be-e467-418a-8ad6-329e0b83d675)
+
+Next we do a similar step for N-Well an well
+
+![18-05-2025_15-00-44](https://github.com/user-attachments/assets/7b1b30e6-0492-4576-89c5-838f27957019)
+
+now we creat on left-side a n-well using Posphourus Ion implantation with ~400eV.
+Higther energy is needed 
+
+![18-05-2025_15-52-49](https://github.com/user-attachments/assets/71498817-5c4f-42e6-bf53-aeb2d568cc2f)
+
+N-well will be chreted dy this process but it is not finalized yet
+
+![18-05-2025_15-59-13](https://github.com/user-attachments/assets/af7c1eb7-7c93-42c9-937f-54f6f8132343)
 
 
+the depth of the well's are not finalized
+next is to diffuse the well's to create half of the substrate area
+this is done via higth temprature furnance
 
+![18-05-2025_15-58-29](https://github.com/user-attachments/assets/84c190af-3a71-4f69-910d-b896e28d3d5b)
 
+next step is to create the gate
 
+  - Formation of gate terminal
 
+gate is most important terminal of nmos or pmos.
+before we staqrt with fabrication poroces, let look into theory from "Cirsuit design and SPICE simulation" couse
 
+![18-05-2025_16-05-42](https://github.com/user-attachments/assets/e25ef72b-7905-44bb-bc26-1c1ca9851ec4)
 
+threshold voltage is mainly dependend on doping concentration and capacitance
 
+![18-05-2025_16-05-42](https://github.com/user-attachments/assets/51604fb2-73cc-49af-9dd2-eb9cb48a22ae)
 
+if we are able to control Na (doping concentration) and Cox (oxide capacitance) this will impact Vt (threshold voltage).
+control of this 2 paramerter will be done by fabrication process
+
+![18-05-2025_17-15-13](https://github.com/user-attachments/assets/9a90c852-2732-444f-80f1-dcec0418f9e1)
+
+Mask 4 ist start for controling p-well for building nmos transistor
+
+![18-05-2025_17-17-53](https://github.com/user-attachments/assets/96796efd-0da5-48e9-8566-082cfd0e1aab)
+
+rigth side is exposted for an further process steps we have to do.
+We use Boron to penetrate into the substrate. We use only ~60eV to penetrate only bit in the surface
+
+![18-05-2025_17-22-56](https://github.com/user-attachments/assets/46d21edc-f475-4767-b5c7-f41acca4379a)
+
+next is Mask 5, here we repeat same steps for N-well to pacricate the pmos
+
+![18-05-2025_17-24-56](https://github.com/user-attachments/assets/3991d52a-1bf4-4062-a202-353d08b141cc)
+
+We can use posphor or ascenic with lower energy 
+
+![18-05-2025_17-27-31](https://github.com/user-attachments/assets/2d43cebc-cd9f-4e26-82ad-1c6c4f269f83)
+
+next we have to fixe the oxide thickness to control the threshold voltage
+
+![18-05-2025_17-30-35](https://github.com/user-attachments/assets/058c3754-4295-49d0-9634-64e2be830ddb)
+
+next we creat a thick polysilicon layer on ~0.4um ang gate area have low resistanse, so we implant N-type material (phosphor or arcenic) to have low gate resistance
+
+![18-05-2025_17-34-59](https://github.com/user-attachments/assets/52b7b07b-70b1-42ab-bdcc-49506eef35a0)
+
+next we use Maks 6 as the gate mask
+
+![18-05-2025_17-36-22](https://github.com/user-attachments/assets/46e2ea41-1ed7-4b1e-aa7e-7704aff118c6)
+
+if we look to the layout we see on rigth side Mask 6 (polysilicon mask) in layout
+
+![18-05-2025_17-37-11](https://github.com/user-attachments/assets/e89e36f1-d9c8-4c06-b59b-5306d9a125b3)
+
+now Mask 6 will be removed and Mask 4 can be etched out and final you get the gate
+
+![18-05-2025_17-42-08](https://github.com/user-attachments/assets/d59beedb-513d-4745-ad98-100a301fa4ca)
 
   - Ligthly dopes drain (LDD) formation
   - Source drain formation
