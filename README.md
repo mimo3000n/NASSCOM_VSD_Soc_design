@@ -928,7 +928,7 @@ next step is to remove the mask
 
 now we remove the protection layer , Siliconnitrat will be eched off.
 
-![18-05-2025_12-44-28](https://github.com/user-attachments/assets/0724011e-d58a-4b8d-a214-3ce421687ec6)
+![18-05-2025_13-12-19](https://github.com/user-attachments/assets/a7673b41-66d2-4f54-b6b2-017ac04ce85a)
 
 now fotoresist will be removed
 
@@ -946,7 +946,6 @@ next Siliconnitrat will be removed with phosphoric acid
 
 ![18-05-2025_13-05-49](https://github.com/user-attachments/assets/dda4ef70-8463-4dff-9906-cbe9f8a129a7)
 
-![18-05-2025_13-05-49](https://github.com/user-attachments/assets/bc180bd8-c6e4-4d01-b6e2-dc7753c6d509)
 
 
 
