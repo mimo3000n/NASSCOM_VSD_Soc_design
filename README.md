@@ -1054,9 +1054,169 @@ now Mask 6 will be removed and Mask 4 can be etched out and final you get the ga
 ![18-05-2025_17-42-08](https://github.com/user-attachments/assets/d59beedb-513d-4745-ad98-100a301fa4ca)
 
   - Ligthly dopes drain (LDD) formation
+
+now we come to LDD formation, the doping profile we try to optain is P+,P-,N.
+P# and N is already there, what we have to bring up is P-
+For NMOS we use a similar profile N+,N-,P
+
+![18-05-2025_17-48-02](https://github.com/user-attachments/assets/ec03fc3f-3849-476f-8fba-f2ffed0c8468)
+
+There a 2 effects, the hot electron effect and the short channel effect.
+
+![18-05-2025_17-51-09](https://github.com/user-attachments/assets/3643190b-03ba-418f-b116-abcc04aa6701)
+
+the process is sipmle, we create Mask 7 
+
+![18-05-2025_17-53-31](https://github.com/user-attachments/assets/8f32a704-bbde-43f9-8ee8-472305e3b95d)
+
+now we use Phosphorous and do a N-Type implantation over rigth side of substrate, which is N- implant.
+
+![18-05-2025_17-56-19](https://github.com/user-attachments/assets/232c0834-b2f1-4379-a3e0-0b14a944d34c)
+
+next is we apply Mask 8 on left side following same process. 
+
+![18-05-2025_17-58-49](https://github.com/user-attachments/assets/8a21bf65-75a9-47b7-b821-bbd4b441038c)
+
+now we use a P-Type implant like Boron, impotant is the it have to be ligthly dopt
+
+![18-05-2025_18-00-12](https://github.com/user-attachments/assets/adbb71a4-fe39-48b3-adb8-5181f4c635ee)
+
+next is we protect the ligthly dopt area by creation of spacer.
+
+![18-05-2025_18-03-15](https://github.com/user-attachments/assets/742f25e0-9f56-498c-bb2d-b0a78cb213c4)
+
+we use plasma anisotropic etching
+
+![18-05-2025_18-05-33](https://github.com/user-attachments/assets/f1b3c7d7-d6fc-4f8d-8aba-be3e3878aaab)
+
+this is called side-wall spacers
+
+![18-05-2025_18-07-09](https://github.com/user-attachments/assets/3038ece4-e7f2-4c2c-a934-c7c3b61a1e77)
+
   - Source drain formation
+
+next step is to avoid channeling effect
+
+![18-05-2025_18-12-41](https://github.com/user-attachments/assets/baf9953f-6c0c-4520-bf33-d299caf1e9b8)
+
+we use Mask 9 to expose Arsenic with 75keV, we do an N+ implant
+
+![18-05-2025_18-16-15](https://github.com/user-attachments/assets/de86533c-42b3-4592-9008-07d474361900)
+
+now we do same thing for PMOS as well with Mask 10
+
+![18-05-2025_18-18-14](https://github.com/user-attachments/assets/1c98c378-5976-438c-b1ea-d6f34c78b212)
+
+on PMOS we use Boron implant with 50keV
+
+![18-05-2025_18-20-25](https://github.com/user-attachments/assets/53b53d48-0adf-4e38-9371-4cce04f96f59)
+
+we remove the mask an put the structure in a higth temparature furnance (1000C), process is call "higth temparture annealing"
+
+![18-05-2025_18-23-39](https://github.com/user-attachments/assets/30f3df0a-af3a-4f29-b50c-eb85ce832fd7)
+
   - Local interconnection formatation
+
+next step is building the contact, for that we have to open up soure, drain and gate for building up contact.
+
+![18-05-2025_18-27-01](https://github.com/user-attachments/assets/c75dbf19-55d7-40ef-9cdb-a18352a61f6c)
+
+we etch of structure of
+
+![18-05-2025_18-28-32](https://github.com/user-attachments/assets/552a9b88-75b9-4196-9f5a-c68d47267b80)
+
+now we have to deposite titanium called sputtering, titanium have very low resistance.
+wat is sputtering, we hit Titanium with Argon-Gas, what happens is that Titanum particels suputter out and will get deposited to the substrate
+
+![18-05-2025_18-34-46](https://github.com/user-attachments/assets/4fbe8c95-8c20-42bf-bb37-b84d59b5c2df)
+
+titanium will be sputted over the whole structore, this is done by 650C-700C in a N2 ambiant
+
+![18-05-2025_18-37-16](https://github.com/user-attachments/assets/801b9e87-9038-4a0d-be69-1e4d568c44d0)
+
+result is that we get a TiSi2 low resistance layer
+
+![18-05-2025_18-39-36](https://github.com/user-attachments/assets/e136296e-6ee6-4b6a-8458-910b0bd22bed)
+
+addition we ge a structur of TiN for local communication
+
+![18-05-2025_18-42-10](https://github.com/user-attachments/assets/6cc31ce5-18c5-4a51-b7fa-4f7d0616098e)
+
+now we use Mask 11, goal is tha source and drain is coming out
+
+![18-05-2025_18-44-45](https://github.com/user-attachments/assets/69c25ace-5d75-4716-9eaa-0e990573ea53)
+
+we remove the mask and we etch of TiN using a process called RCA cleaning
+
+![18-05-2025_18-47-32](https://github.com/user-attachments/assets/5c79a2b2-cf67-4aa0-b84b-48c123b370d2)
+
+whats RCA cleaning
+
+![18-05-2025_18-48-48](https://github.com/user-attachments/assets/9d8905b2-5a4c-41f3-b4ec-f22640d3f19e)
+
+result of RCA cleaning is following
+
+![18-05-2025_18-49-42](https://github.com/user-attachments/assets/ff8240c0-31a3-46ad-805f-50bde1266bcc)
+
+first level of contacts have been done, result will be TiN interconnect
+
+![18-05-2025_18-51-23](https://github.com/user-attachments/assets/9f4971cc-f8a4-459f-a2ef-195967285c59)
+
   - Higher level formation
+
+now we look into higher level formation, the process is similar what we have senn before.
+We deposit a thik layer of SiO2 dopt with phosphous or Boron.
+
+![18-05-2025_18-56-28](https://github.com/user-attachments/assets/4f231625-924c-438b-9e19-fa9cb4bd527c)
+
+next step is to polish surface
+
+![18-05-2025_18-58-08](https://github.com/user-attachments/assets/a846cbeb-3032-419e-9901-e9c908bea6b3)
+
+we use Mask 12 for drilling contact holes
+
+![18-05-2025_19-00-27](https://github.com/user-attachments/assets/d374606a-a145-4073-b85a-c094f8b9bb02)
+
+now we remove foto resist and deposit a thin layer of TiN
+
+![18-05-2025_19-02-17](https://github.com/user-attachments/assets/c5652ef8-2347-4743-b9eb-7c77359132d4)
+
+next we deposit a blanket tungsten layer 
+
+![18-05-2025_19-03-44](https://github.com/user-attachments/assets/96d94b0d-f96e-422f-bccc-b3fb5d0243bd)
+
+next is planarize the surface with CMP (chemical machanical polishing)
+
+![18-05-2025_19-06-07](https://github.com/user-attachments/assets/11954e2c-273e-49df-a005-667417d9a296)
+
+now we have blanket tungsun contact which has to be connected to a higther layer, for set we deposit a Al (aluminiaum) layer and use Mask 13
+
+![18-05-2025_19-09-36](https://github.com/user-attachments/assets/a59c6aa8-43fc-432b-8ae4-ad5ab9e887e8)
+
+we use same process to create Al contacts
+
+![18-05-2025_19-11-37](https://github.com/user-attachments/assets/a80b36e8-24b7-447d-9b56-3c4c5e23dc14)
+
+we add SiO2 layer with CMP process and with Mask 14 we get the contacxt wholes
+
+![18-05-2025_19-14-26](https://github.com/user-attachments/assets/5d48a9b8-d5cf-4c35-b4fd-d609766a87b2)
+
+next we deposit a small T1N layer and next we deposit tungstun as contacts  
+
+![18-05-2025_19-17-05](https://github.com/user-attachments/assets/9fb76b38-f4e5-4817-8612-fd9121c6ba3e)
+
+no we use Mask 15 to deposit Al layer at the top to make thrid level of interconnect. If you go from botton to top the thickness of your interconnect increase
+
+![18-05-2025_19-20-20](https://github.com/user-attachments/assets/35e63eeb-11d3-4738-9d52-962d53b60c86)
+
+now we deposit a layer of Si3N4 for chip protection, its the last layer where interconnect are coming out
+
+![18-05-2025_19-22-45](https://github.com/user-attachments/assets/42c98cd8-d931-4e54-9af8-4cee1c8a2ac3)
+
+last we use Mask 16 to brin contacts outside of your chip
+
+![18-05-2025_19-24-50](https://github.com/user-attachments/assets/dcc0d762-de18-4f3b-bbd9-8223945cf8b6)
+
   - Lab introduction to Sky130 basic layers layout and LEF using inverter
   - Lab steps to create std cell layout and extraction spice netlist
  
@@ -1065,7 +1225,7 @@ now Mask 6 will be removed and Mask 4 can be etched out and final you get the ga
   - Lab steps to characterize inverter using sky130 model files
   - Lab introduction to Magic tool option and DRC rules
  
-to get more familar with magic have a loot to [magic](http://opencircuitdesign.com/magic/index.html) for details.
+to get more familar with magic have a look to [magic](http://opencircuitdesign.com/magic/index.html) for details.
 Also have a look at goolgs Skywate side about 130mn process: [Skywater 130nm](https://skywater-pdk.readthedocs.io/en/main/index.html)
 a good reference is Google-Skywater github repo : - [Google-Skywater repo](https://github.com/google/skywater-pdk)
 
